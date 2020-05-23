@@ -1,0 +1,4 @@
+github "SnapKit/SnapKit" ~> 5.0.0
+github "Juanpe/SkeletonView" == 1.8.4
+github "Quick/Quick"
+github "Quick/Nimble"

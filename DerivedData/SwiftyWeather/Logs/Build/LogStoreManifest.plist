@@ -5,6 +5,177 @@
 	<key>logFormatVersion</key>
 	<integer>10</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>1ECFE5FD-EF1C-47AD-A54E-0627284ECA9F</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>1ECFE5FD-EF1C-47AD-A54E-0627284ECA9F.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>SwiftyWeather project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>SwiftyWeather</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build SwiftyWeather</string>
+			<key>timeStartedRecording</key>
+			<real>611931666.06240904</real>
+			<key>timeStoppedRecording</key>
+			<real>611931666.25454104</real>
+			<key>title</key>
+			<string>Build SwiftyWeather</string>
+			<key>uniqueIdentifier</key>
+			<string>1ECFE5FD-EF1C-47AD-A54E-0627284ECA9F</string>
+		</dict>
+		<key>6392B781-BEC8-4D18-8130-101530EECB4B</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>6392B781-BEC8-4D18-8130-101530EECB4B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>SwiftyWeather project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>SwiftyWeather</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build SwiftyWeather</string>
+			<key>timeStartedRecording</key>
+			<real>611930073.21624303</real>
+			<key>timeStoppedRecording</key>
+			<real>611930073.79972601</real>
+			<key>title</key>
+			<string>Build SwiftyWeather</string>
+			<key>uniqueIdentifier</key>
+			<string>6392B781-BEC8-4D18-8130-101530EECB4B</string>
+		</dict>
+		<key>917CCE49-8BE0-49AA-8915-1914250D0699</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>917CCE49-8BE0-49AA-8915-1914250D0699.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>SwiftyWeather project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>SwiftyWeather</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build SwiftyWeather</string>
+			<key>timeStartedRecording</key>
+			<real>611931622.69735396</real>
+			<key>timeStoppedRecording</key>
+			<real>611931624.11951196</real>
+			<key>title</key>
+			<string>Build SwiftyWeather</string>
+			<key>uniqueIdentifier</key>
+			<string>917CCE49-8BE0-49AA-8915-1914250D0699</string>
+		</dict>
+		<key>DD7BC1AF-9381-42B8-BB47-6F930413E3D2</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>DD7BC1AF-9381-42B8-BB47-6F930413E3D2.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>SwiftyWeather project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>SwiftyWeather</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build SwiftyWeather</string>
+			<key>timeStartedRecording</key>
+			<real>611931674.02731001</real>
+			<key>timeStoppedRecording</key>
+			<real>611931674.69215202</real>
+			<key>title</key>
+			<string>Build SwiftyWeather</string>
+			<key>uniqueIdentifier</key>
+			<string>DD7BC1AF-9381-42B8-BB47-6F930413E3D2</string>
+		</dict>
+		<key>E768A81F-284D-4D47-A5E9-60206E93F166</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>E768A81F-284D-4D47-A5E9-60206E93F166.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>SwiftyWeather project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>SwiftyWeather</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build SwiftyWeather</string>
+			<key>timeStartedRecording</key>
+			<real>611930104.35068703</real>
+			<key>timeStoppedRecording</key>
+			<real>611930143.11349702</real>
+			<key>title</key>
+			<string>Build SwiftyWeather</string>
+			<key>uniqueIdentifier</key>
+			<string>E768A81F-284D-4D47-A5E9-60206E93F166</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

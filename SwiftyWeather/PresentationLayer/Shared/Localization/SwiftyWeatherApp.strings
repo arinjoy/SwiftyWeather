@@ -1,0 +1,17 @@
+/* 
+  SwiftyWeatherApp.strings
+  SwiftyWeather
+
+  Created by Arinjoy Biswas on 23/5/20.
+  Copyright © 2020 Arinjoy Biswas. All rights reserved.
+*/
+
+// MARK: - General
+
+"view.loading.title" = "Fetching weather...";
+
+"error.dismiss.action.title" = "OK";
+"error.generic.title" = "Oops! Something wrong.";
+
+"error.generic.message" = "There is a generic error. Please try again later.";
+"error.networkConnection.message" = "Please check your network connection and try again.";

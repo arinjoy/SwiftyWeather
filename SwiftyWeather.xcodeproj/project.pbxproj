@@ -8,26 +8,80 @@
 
 /* Begin PBXBuildFile section */
 		0E986C9924794BC700F220F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986C9824794BC700F220F1 /* AppDelegate.swift */; };
-		0E986C9B24794BC700F220F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986C9A24794BC700F220F1 /* SceneDelegate.swift */; };
 		0E986C9D24794BC700F220F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986C9C24794BC700F220F1 /* ViewController.swift */; };
 		0E986CA024794BC700F220F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E986C9E24794BC700F220F1 /* Main.storyboard */; };
 		0E986CA224794BC900F220F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E986CA124794BC900F220F1 /* Assets.xcassets */; };
 		0E986CA524794BC900F220F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E986CA324794BC900F220F1 /* LaunchScreen.storyboard */; };
+		0E986CAE24794D5900F220F1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986CAD24794D5900F220F1 /* Theme.swift */; };
+		0E986CB124794D9C00F220F1 /* LocalizationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986CB024794D9C00F220F1 /* LocalizationKeys.swift */; };
+		0E986CB324794DFC00F220F1 /* SwiftyWeatherApp+LocalizationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986CB224794DFC00F220F1 /* SwiftyWeatherApp+LocalizationKeys.swift */; };
+		0E986CB524794E6D00F220F1 /* SwiftyWeatherApp.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E986CB424794E6D00F220F1 /* SwiftyWeatherApp.strings */; };
+		0E986CB724794EC400F220F1 /* Accessibility+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986CB624794EC400F220F1 /* Accessibility+Helpers.swift */; };
+		0E986CC42479519500F220F1 /* SwiftyWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986CC32479519500F220F1 /* SwiftyWeatherTests.swift */; };
+		0E986CCC2479524000F220F1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0E986CCB2479524000F220F1 /* README.md */; };
+		0E986CD12479558600F220F1 /* SkeletonView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E986CD02479558600F220F1 /* SkeletonView.framework */; };
+		0E986CD22479558600F220F1 /* SkeletonView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E986CD02479558600F220F1 /* SkeletonView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0E986CD5247955A900F220F1 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E986CD4247955A900F220F1 /* SnapKit.framework */; };
+		0E986CD6247955A900F220F1 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E986CD4247955A900F220F1 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0E986CC62479519500F220F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E986C8D24794BC700F220F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E986C9424794BC700F220F1;
+			remoteInfo = SwiftyWeather;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0E986CD32479558600F220F1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0E986CD22479558600F220F1 /* SkeletonView.framework in Embed Frameworks */,
+				0E986CD6247955A900F220F1 /* SnapKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0E986C9524794BC700F220F1 /* SwiftyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E986C9824794BC700F220F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0E986C9A24794BC700F220F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0E986C9C24794BC700F220F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0E986C9F24794BC700F220F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E986CA124794BC900F220F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E986CA424794BC900F220F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E986CA624794BC900F220F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E986CAD24794D5900F220F1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		0E986CB024794D9C00F220F1 /* LocalizationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationKeys.swift; sourceTree = "<group>"; };
+		0E986CB224794DFC00F220F1 /* SwiftyWeatherApp+LocalizationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftyWeatherApp+LocalizationKeys.swift"; sourceTree = "<group>"; };
+		0E986CB424794E6D00F220F1 /* SwiftyWeatherApp.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = SwiftyWeatherApp.strings; sourceTree = "<group>"; };
+		0E986CB624794EC400F220F1 /* Accessibility+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Accessibility+Helpers.swift"; sourceTree = "<group>"; };
+		0E986CC12479519500F220F1 /* SwiftyWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E986CC32479519500F220F1 /* SwiftyWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyWeatherTests.swift; sourceTree = "<group>"; };
+		0E986CC52479519500F220F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E986CCB2479524000F220F1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0E986CD02479558600F220F1 /* SkeletonView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkeletonView.framework; path = Carthage/Build/iOS/SkeletonView.framework; sourceTree = "<group>"; };
+		0E986CD4247955A900F220F1 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0E986C9224794BC700F220F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E986CD12479558600F220F1 /* SkeletonView.framework in Frameworks */,
+				0E986CD5247955A900F220F1 /* SnapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E986CBE2479519500F220F1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,8 +94,11 @@
 		0E986C8C24794BC700F220F1 = {
 			isa = PBXGroup;
 			children = (
+				0E986CCB2479524000F220F1 /* README.md */,
 				0E986C9724794BC700F220F1 /* SwiftyWeather */,
+				0E986CC22479519500F220F1 /* SwiftyWeatherTests */,
 				0E986C9624794BC700F220F1 /* Products */,
+				0E986CCF2479558600F220F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				0E986C9524794BC700F220F1 /* SwiftyWeather.app */,
+				0E986CC12479519500F220F1 /* SwiftyWeatherTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +114,93 @@
 		0E986C9724794BC700F220F1 /* SwiftyWeather */ = {
 			isa = PBXGroup;
 			children = (
-				0E986C9824794BC700F220F1 /* AppDelegate.swift */,
-				0E986C9A24794BC700F220F1 /* SceneDelegate.swift */,
-				0E986C9C24794BC700F220F1 /* ViewController.swift */,
-				0E986C9E24794BC700F220F1 /* Main.storyboard */,
-				0E986CA124794BC900F220F1 /* Assets.xcassets */,
-				0E986CA324794BC900F220F1 /* LaunchScreen.storyboard */,
+				0E986CBA24794F1F00F220F1 /* PresentationLayer */,
 				0E986CA624794BC900F220F1 /* Info.plist */,
 			);
 			path = SwiftyWeather;
+			sourceTree = "<group>";
+		};
+		0E986CAC24794D4400F220F1 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				0E986CAD24794D5900F220F1 /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		0E986CAF24794D7D00F220F1 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				0E986CB024794D9C00F220F1 /* LocalizationKeys.swift */,
+				0E986CB224794DFC00F220F1 /* SwiftyWeatherApp+LocalizationKeys.swift */,
+				0E986CB424794E6D00F220F1 /* SwiftyWeatherApp.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		0E986CB824794EEF00F220F1 /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				0E986CB624794EC400F220F1 /* Accessibility+Helpers.swift */,
+			);
+			path = Accessibility;
+			sourceTree = "<group>";
+		};
+		0E986CB924794F0100F220F1 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0E986CAC24794D4400F220F1 /* Theme */,
+				0E986CAF24794D7D00F220F1 /* Localization */,
+				0E986CB824794EEF00F220F1 /* Accessibility */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		0E986CBA24794F1F00F220F1 /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				0E986C9E24794BC700F220F1 /* Main.storyboard */,
+				0E986CA324794BC900F220F1 /* LaunchScreen.storyboard */,
+				0E986CA124794BC900F220F1 /* Assets.xcassets */,
+				0E986CBB24794F3300F220F1 /* Scenes */,
+				0E986CB924794F0100F220F1 /* Shared */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		0E986CBB24794F3300F220F1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				0E986CBC24794F3900F220F1 /* Root */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		0E986CBC24794F3900F220F1 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				0E986C9824794BC700F220F1 /* AppDelegate.swift */,
+				0E986C9C24794BC700F220F1 /* ViewController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		0E986CC22479519500F220F1 /* SwiftyWeatherTests */ = {
+			isa = PBXGroup;
+			children = (
+				0E986CC32479519500F220F1 /* SwiftyWeatherTests.swift */,
+				0E986CC52479519500F220F1 /* Info.plist */,
+			);
+			path = SwiftyWeatherTests;
+			sourceTree = "<group>";
+		};
+		0E986CCF2479558600F220F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E986CD4247955A900F220F1 /* SnapKit.framework */,
+				0E986CD02479558600F220F1 /* SkeletonView.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +213,8 @@
 				0E986C9124794BC700F220F1 /* Sources */,
 				0E986C9224794BC700F220F1 /* Frameworks */,
 				0E986C9324794BC700F220F1 /* Resources */,
+				0E986CCE2479542800F220F1 /* Carthage Copy Frameworks */,
+				0E986CD32479558600F220F1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -86,6 +224,25 @@
 			productName = SwiftyWeather;
 			productReference = 0E986C9524794BC700F220F1 /* SwiftyWeather.app */;
 			productType = "com.apple.product-type.application";
+		};
+		0E986CC02479519500F220F1 /* SwiftyWeatherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E986CC82479519500F220F1 /* Build configuration list for PBXNativeTarget "SwiftyWeatherTests" */;
+			buildPhases = (
+				0E986CBD2479519500F220F1 /* Sources */,
+				0E986CBE2479519500F220F1 /* Frameworks */,
+				0E986CBF2479519500F220F1 /* Resources */,
+				0E986CCD247953A500F220F1 /* Carthage Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E986CC72479519500F220F1 /* PBXTargetDependency */,
+			);
+			name = SwiftyWeatherTests;
+			productName = SwiftyWeatherTests;
+			productReference = 0E986CC12479519500F220F1 /* SwiftyWeatherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -99,6 +256,10 @@
 				TargetAttributes = {
 					0E986C9424794BC700F220F1 = {
 						CreatedOnToolsVersion = 11.4;
+					};
+					0E986CC02479519500F220F1 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 0E986C9424794BC700F220F1;
 					};
 				};
 			};
@@ -116,6 +277,7 @@
 			projectRoot = "";
 			targets = (
 				0E986C9424794BC700F220F1 /* SwiftyWeather */,
+				0E986CC02479519500F220F1 /* SwiftyWeatherTests */,
 			);
 		};
 /* End PBXProject section */
@@ -127,24 +289,95 @@
 			files = (
 				0E986CA524794BC900F220F1 /* LaunchScreen.storyboard in Resources */,
 				0E986CA224794BC900F220F1 /* Assets.xcassets in Resources */,
+				0E986CCC2479524000F220F1 /* README.md in Resources */,
 				0E986CA024794BC700F220F1 /* Main.storyboard in Resources */,
+				0E986CB524794E6D00F220F1 /* SwiftyWeatherApp.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E986CBF2479519500F220F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E986CCD247953A500F220F1 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+		0E986CCE2479542800F220F1 /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SkeletonView.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0E986C9124794BC700F220F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E986CB724794EC400F220F1 /* Accessibility+Helpers.swift in Sources */,
+				0E986CAE24794D5900F220F1 /* Theme.swift in Sources */,
 				0E986C9D24794BC700F220F1 /* ViewController.swift in Sources */,
+				0E986CB124794D9C00F220F1 /* LocalizationKeys.swift in Sources */,
+				0E986CB324794DFC00F220F1 /* SwiftyWeatherApp+LocalizationKeys.swift in Sources */,
 				0E986C9924794BC700F220F1 /* AppDelegate.swift in Sources */,
-				0E986C9B24794BC700F220F1 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E986CBD2479519500F220F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E986CC42479519500F220F1 /* SwiftyWeatherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0E986CC72479519500F220F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E986C9424794BC700F220F1 /* SwiftyWeather */;
+			targetProxy = 0E986CC62479519500F220F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0E986C9E24794BC700F220F1 /* Main.storyboard */ = {
@@ -286,6 +519,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9D2CDZVV47;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftyWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +541,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9D2CDZVV47;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftyWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -313,6 +554,46 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0E986CC92479519500F220F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9D2CDZVV47;
+				INFOPLIST_FILE = SwiftyWeatherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.arinappy.SwiftyWeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyWeather.app/SwiftyWeather";
+			};
+			name = Debug;
+		};
+		0E986CCA2479519500F220F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9D2CDZVV47;
+				INFOPLIST_FILE = SwiftyWeatherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.arinappy.SwiftyWeatherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyWeather.app/SwiftyWeather";
 			};
 			name = Release;
 		};
@@ -333,6 +614,15 @@
 			buildConfigurations = (
 				0E986CAA24794BC900F220F1 /* Debug */,
 				0E986CAB24794BC900F220F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E986CC82479519500F220F1 /* Build configuration list for PBXNativeTarget "SwiftyWeatherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E986CC92479519500F220F1 /* Debug */,
+				0E986CCA2479519500F220F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
