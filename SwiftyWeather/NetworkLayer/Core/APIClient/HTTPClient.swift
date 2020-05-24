@@ -10,24 +10,24 @@ import Foundation
 import Combine
 
 final class HTTPClient: FutureDataSource {
+    
+    static let shared = HTTPClient()
+    
+    // MARK: - Private Properties
+    
+    private var subscriptions = Set<AnyCancellable>()
+    private let urlSession = URLSession.shared
 
-    // MARK: - Private properties
-
-    private let defaultSession: URLSession
-    private var cancellable: AnyCancellable?
-
-    init(withSession session: URLSession = URLSession(configuration: .default)) {
-        self.defaultSession = session
-    }
+    private init() {}
 
     // MARK: - FutureDataSource
 
     @discardableResult
     func fetchFutureObject<T>(with request: BaseRequest) -> Future<T, Error> where T: Decodable {
         
-        return Future<T, Error> { promise in
+        return Future<T, Error> { [unowned self] promise in
             
-            self.cancellable = self.defaultSession.dataTaskPublisher(for: request.urlRequest)
+            self.urlSession.dataTaskPublisher(for: request.urlRequest)
             .tryMap { data, response in
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     throw HTTPError.statusCode
@@ -36,7 +36,7 @@ final class HTTPClient: FutureDataSource {
             }
             .decode(type: T.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
-            .receive(on: DispatchQueue.main)
+            .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
@@ -47,8 +47,7 @@ final class HTTPClient: FutureDataSource {
             }, receiveValue: { result in
                 promise(.success(result))
             })
-            
-            self.cancellable?.cancel()
+            .store(in: &self.subscriptions)
         }
     }
 }
