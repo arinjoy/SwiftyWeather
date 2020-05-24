@@ -46,5 +46,8 @@ public enum APIError: Error {
     
     /// Any unknown error happens
     case unknown
+    
+    /// URL is abnormal
+    case urlError(URLError)
 }
 

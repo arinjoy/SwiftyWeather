@@ -11,7 +11,7 @@ import Combine
 
 protocol WeatherFetchingClientType {
     
-    func fetchWeather(forCityIDs cityIDs: [String]) -> Future<CityWeatherList, Error>
+    func fetchWeather(forCityIDs cityIDs: [String]) -> Future<CityWeatherList, APIError>
 }
 
 /// A service client to retrieve weather of cities
@@ -23,7 +23,7 @@ final class WeatherFetchingServiceClient: WeatherFetchingClientType {
         self.dataSource = dataSource
     }
     
-    func fetchWeather(forCityIDs cityIDs: [String]) -> Future<CityWeatherList, Error> {
+    func fetchWeather(forCityIDs cityIDs: [String]) -> Future<CityWeatherList, APIError> {
         let request = WeatherFetchingRequest(withCityIDs: cityIDs)
         return dataSource.fetchFutureObject(with: request)
     }

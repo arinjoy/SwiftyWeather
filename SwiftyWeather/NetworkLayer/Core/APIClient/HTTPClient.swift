@@ -23,14 +23,17 @@ final class HTTPClient: FutureDataSource {
     // MARK: - FutureDataSource
 
     @discardableResult
-    func fetchFutureObject<T>(with request: BaseRequest) -> Future<T, Error> where T: Decodable {
+    func fetchFutureObject<T>(with request: BaseRequest) -> Future<T, APIError> where T: Decodable {
         
-        return Future<T, Error> { [unowned self] promise in
+        return Future<T, APIError> { [unowned self] promise in
             
             self.urlSession.dataTaskPublisher(for: request.urlRequest)
             .tryMap { data, response in
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    throw HTTPError.statusCode
+                guard let response = response as? HTTPURLResponse else {
+                    throw APIError.unknown
+                }
+                guard response.statusCode == 200 else {
+                    throw self.mapHTTPError(from: response.statusCode)
                 }
                 return data
             }
@@ -38,11 +41,8 @@ final class HTTPClient: FutureDataSource {
             .eraseToAnyPublisher()
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    promise(.failure(error))
+                if case let .failure(error) = completion {
+                    promise(.failure(self.mapError(from: error)))
                 }
             }, receiveValue: { result in
                 promise(.success(result))
@@ -50,13 +50,49 @@ final class HTTPClient: FutureDataSource {
             .store(in: &self.subscriptions)
         }
     }
-}
-
-struct Model: Decodable {
-    let a: String
-}
-
-
-enum HTTPError: LocalizedError {
-    case statusCode
+    
+    // MARK: - Private Helpers - Custom Error mapping
+    
+    private func mapHTTPError(from statusCode: Int) -> APIError {
+        switch statusCode {
+        case 401:
+            return .unAuthorized
+        case 403:
+            return .forbidden
+        case 404:
+            return .notFound
+        case 503:
+            return .seviceUnavailable
+        case 500 ... 599:
+            return .server
+        default:
+            return .unknown
+        }
+    }
+    
+    private func mapError(from error: Error) -> APIError {
+        if let connectivityError = self.mapConnectivityError(from: error) {
+            return connectivityError
+        } else {
+            switch error {
+            case let urlError as URLError:
+                return .urlError(urlError)
+            case _ as DecodingError:
+                return .dataConversionFailed
+            default:
+                return error as? APIError ?? .unknown
+            }
+        }
+    }
+    
+    private func mapConnectivityError(from error: Error) -> APIError? {
+        switch (error as NSError).code {
+        case NSURLErrorNotConnectedToInternet:
+            return .networkFailure
+        case NSURLErrorTimedOut:
+            return .timeout
+        default:
+            return nil
+        }
+    }
 }

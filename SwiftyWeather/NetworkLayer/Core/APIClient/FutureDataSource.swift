@@ -13,12 +13,12 @@ import Combine
 /// then finishes or fails as per publisher/subcriber model & reactive programming paradigm in `Combine`
 protocol FutureDataSource {
     
-    ///  Calls the server, fetches and returns a `Future<T, Error>`
+    ///  Calls the server, fetches and returns a `Future<T, APIError>`
     ///
     /// - Parameter request: A BaseRequest instance that defines the API call
     /// - Returns: a `Future<T, Error>` instance containing the data and or error returned from the API call
     @discardableResult
-    func fetchFutureObject<T>(with request: BaseRequest) -> Future<T, Error> where T: Decodable
+    func fetchFutureObject<T>(with request: BaseRequest) -> Future<T, APIError> where T: Decodable
     
 }
 
