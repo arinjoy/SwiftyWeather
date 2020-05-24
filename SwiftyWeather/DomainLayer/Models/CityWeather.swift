@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CityWeather {
+struct CityWeather: Hashable {
     
     let cityId: String
     let cityName: String
