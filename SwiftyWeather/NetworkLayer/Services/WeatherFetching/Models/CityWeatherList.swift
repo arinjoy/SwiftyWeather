@@ -57,10 +57,12 @@ struct MainInfo: Decodable {
     }
 }
 
-struct SummaryInfo: Codable {
+struct SummaryInfo: Decodable {
     let title: String
     let description: String
-    let iconCode: String // "http://openweathermap.org/img/w/" + iconcode + ".png";
+    
+    /// "http://openweathermap.org/img/w/" + iconcode + ".png";
+    let iconCode: String
     
     enum CodingKeys: String, CodingKey {
         case title = "main"

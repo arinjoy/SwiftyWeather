@@ -32,5 +32,6 @@ struct Constant {
         static let serverPath: String = "https://api.openweathermap.org/data/2.5/group"
         static let apiKey: String = "a90804ee877a7f99ffe80dbbfd23695c"
         static let weatherUnit: String = "metric"
+        static let iconWebUrlBasePath: String = "http://openweathermap.org/img/w/"
     }
 }

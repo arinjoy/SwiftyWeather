@@ -22,15 +22,16 @@ final class ViewController: UIViewController {
         title = StringKeys.SwiftyWeatherApp.viewLoadingTitle.localized()
         
         let service = WeatherFetchingServiceClient(dataSource: HTTPClient.shared)
-        service.fetchWeather(forCityIDs: Constant.cityIDs)
-            .sink(receiveCompletion: { completion in
-                if case let .failure(error) = completion {
-                    print(error)
-                }
-            }, receiveValue: { data in
-                print(data)
-            })
-            .store(in: &cancellableSet)
+        let interactor = WeatherInteractor(weatherFetchingService: service)
+        interactor.getWeather(forCityIDs: Constant.cityIDs)
+        .sink(receiveCompletion: { completion in
+            if case let .failure(error) = completion {
+                print(error)
+            }
+        }, receiveValue: { data in
+            print(data)
+        })
+        .store(in: &cancellableSet)
         
     }
 }
