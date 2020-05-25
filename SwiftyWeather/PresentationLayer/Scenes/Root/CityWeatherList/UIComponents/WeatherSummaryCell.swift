@@ -22,7 +22,7 @@ final class WeatherSummaryCell: UITableViewCell {
     
     private let cityNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = Theme.titleFont
         label.textAlignment = .left
         return label
     }()
@@ -30,7 +30,7 @@ final class WeatherSummaryCell: UITableViewCell {
     
     private let temperatureLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = Theme.titleFont
         label.textAlignment = .right
         return label
     }()
@@ -44,7 +44,7 @@ final class WeatherSummaryCell: UITableViewCell {
         buildUIAndApplyConstraints()
         
         containerCardView.backgroundColor = Theme.backgroundColor
-        contentView.backgroundColor = Theme.darkerBackgroundColor
+        contentView.backgroundColor = Theme.lightBackgroundColor
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -91,12 +91,6 @@ final class WeatherSummaryCell: UITableViewCell {
 // MARK: - Configuration
 
 extension WeatherSummaryCell {
-    
-    func setup(_ weather: CityWeather) {
-        cityNameLabel.text = weather.cityName
-        temperatureLabel.text = "\(weather.temperature)" + " degree C"
-        applyContainerStyle()
-    }
     
     func configure(withPresentationItem item: WeatherSummaryPresentationItem) {
         

@@ -62,7 +62,7 @@ final class WeatherListViewController: UITableViewController {
     // MARK: - Private Helpers
     
     private func setupTableView() {
-        tableView.backgroundColor = Theme.darkerBackgroundColor
+        tableView.backgroundColor = Theme.lightBackgroundColor
         tableView.register(WeatherSummaryCell.self, forCellReuseIdentifier: "WeatherSummaryCell")
         
         tableView.rowHeight = UITableView.automaticDimension
@@ -90,7 +90,7 @@ final class WeatherListViewController: UITableViewController {
 
 extension WeatherListViewController: WeatherListDisplay {
     func setTitle(_ title: String) {
-        self.title = StringKeys.SwiftyWeatherApp.viewLoadingTitle.localized()
+        self.title = title
     }
     
     func setWeatherListDataSource(_ dataSource: WeatherListDataSource) {

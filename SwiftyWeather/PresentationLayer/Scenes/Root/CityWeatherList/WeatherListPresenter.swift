@@ -66,7 +66,7 @@ final class WeatherListPresenter: WeatherListPresenting {
             return
         }
         
-        display?.setTitle(StringKeys.SwiftyWeatherApp.viewLoadedTitle.localized())
+        display?.setTitle(StringKeys.SwiftyWeatherApp.viewLoadingTitle.localized())
         display?.showLoadingIndicator()
         
         let service = WeatherFetchingServiceClient(dataSource: HTTPClient.shared)

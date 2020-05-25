@@ -34,7 +34,7 @@ extension StringKeys {
         
         case genericErrorTitle = "error.generic.alert.title"
         case genericErrorMessage = "error.generic.alert.message"
-        case errorDismissTitle = "error.generic.alert.dismiss"
+        case errorDismissTitle = "error.dismiss.action.title"
         case networkConnectionErrorMessage = "error.networkConnection.alert.message"
         
         case weatherListItemAccessibilityHint = "weather.list.item.accessibility.hint"

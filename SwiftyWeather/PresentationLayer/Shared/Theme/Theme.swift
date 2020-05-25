@@ -12,32 +12,33 @@ enum Theme {
     
     // MARK: - Colors
     
-    private static let tealColor = UIColor.colorFrom(red: 58, green: 141, blue: 123)
-    static let lightTealGrayColor = UIColor.colorFrom(red: 226, green: 232, blue: 230)
-    static let lightOrangeGrayColor = UIColor.colorFrom(red: 51, green: 46, blue: 45)
-
-    static let tintColor = UIColor(light: Theme.tealColor,
-                                   dark: UIColor.orange)
+    static let skyBlueColor = UIColor.colorFrom(red: 64, green: 218, blue: 255)
+    static let darkBlueColor = UIColor.colorFrom(red: 13, green: 10, blue: 36)
     
-    static let backgroundColor =  UIColor(light: UIColor.white,
-                                          dark: Theme.lightOrangeGrayColor)
+    static let backgroundColor =  UIColor(light: Theme.skyBlueColor,
+                                          dark: Theme.darkBlueColor)
+    static let lightBackgroundColor = UIColor(
+        light: UIColor.colorFrom(red: 197, green: 241, blue: 255),
+        dark: UIColor.colorFrom(red: 20, green: 34, blue: 95))
     
-    static let darkerBackgroundColor = UIColor(light: Theme.lightTealGrayColor,
-                                               dark: UIColor.black)
+    static let tintColor = UIColor(light: .systemPurple,
+                                   dark: .systemYellow)
     
-    static let primaryTextColor = UIColor(light: UIColor.darkText,
-                                          dark: UIColor.colorFrom(red: 246, green: 242, blue: 241))
+    static let primaryTextColor = UIColor(
+        light: Theme.darkBlueColor,
+        dark: UIColor.colorFrom(red: 246, green: 242, blue: 241))
     
-    static let shimmerBaseColor = Theme.darkerBackgroundColor
+    static let shimmerBaseColor = Theme.lightBackgroundColor
     
-    static let shimmerGradientColor = UIColor(light: Theme.shimmerBaseColor.withAlphaComponent(0.5),
-                                              dark: Theme.shimmerBaseColor.withAlphaComponent(0.8))
+    static let shimmerGradientColor = UIColor(
+        light: Theme.shimmerBaseColor.withAlphaComponent(0.5),
+        dark: Theme.shimmerBaseColor.withAlphaComponent(0.8))
     
     // MARK: - Fonts
     
-    static let titleFont = UIFont(name: "Avenir-Heavy", size: 22) ?? UIFont.systemFont(ofSize: 22, weight: .semibold)
+    static let titleFont = UIFont(name: "Avenir-Heavy", size: 26) ?? UIFont.systemFont(ofSize: 26, weight: .semibold)
     
-    static let bodyFont = UIFont(name: "Avenir", size: 18) ?? UIFont.systemFont(ofSize: 18, weight: .regular)
+    static let bodyFont = UIFont(name: "Avenir", size: 20) ?? UIFont.systemFont(ofSize: 20, weight: .regular)
 }
 
 private extension UIColor {

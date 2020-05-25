@@ -14,7 +14,7 @@
 		0E986CA524794BC900F220F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E986CA324794BC900F220F1 /* LaunchScreen.storyboard */; };
 		0E986CAE24794D5900F220F1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986CAD24794D5900F220F1 /* Theme.swift */; };
 		0E986CB124794D9C00F220F1 /* LocalizationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986CB024794D9C00F220F1 /* LocalizationKeys.swift */; };
-		0E986CB324794DFC00F220F1 /* SwiftyWeatherApp+LocalizationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986CB224794DFC00F220F1 /* SwiftyWeatherApp+LocalizationKeys.swift */; };
+		0E986CB324794DFC00F220F1 /* SwiftyWeatherApp+StringKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986CB224794DFC00F220F1 /* SwiftyWeatherApp+StringKeys.swift */; };
 		0E986CB524794E6D00F220F1 /* SwiftyWeatherApp.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E986CB424794E6D00F220F1 /* SwiftyWeatherApp.strings */; };
 		0E986CB724794EC400F220F1 /* Accessibility+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986CB624794EC400F220F1 /* Accessibility+Helpers.swift */; };
 		0E986CC42479519500F220F1 /* SwiftyWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986CC32479519500F220F1 /* SwiftyWeatherTests.swift */; };
@@ -78,7 +78,7 @@
 		0E986CA624794BC900F220F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E986CAD24794D5900F220F1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		0E986CB024794D9C00F220F1 /* LocalizationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationKeys.swift; sourceTree = "<group>"; };
-		0E986CB224794DFC00F220F1 /* SwiftyWeatherApp+LocalizationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftyWeatherApp+LocalizationKeys.swift"; sourceTree = "<group>"; };
+		0E986CB224794DFC00F220F1 /* SwiftyWeatherApp+StringKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftyWeatherApp+StringKeys.swift"; sourceTree = "<group>"; };
 		0E986CB424794E6D00F220F1 /* SwiftyWeatherApp.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = SwiftyWeatherApp.strings; sourceTree = "<group>"; };
 		0E986CB624794EC400F220F1 /* Accessibility+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Accessibility+Helpers.swift"; sourceTree = "<group>"; };
 		0E986CC12479519500F220F1 /* SwiftyWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,8 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				0E986CB024794D9C00F220F1 /* LocalizationKeys.swift */,
-				0E986CB224794DFC00F220F1 /* SwiftyWeatherApp+LocalizationKeys.swift */,
 				0E986CB424794E6D00F220F1 /* SwiftyWeatherApp.strings */,
+				0E986CB224794DFC00F220F1 /* SwiftyWeatherApp+StringKeys.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -534,7 +534,7 @@
 				0E986D20247BEFD800F220F1 /* WeatherListPresenter.swift in Sources */,
 				0E986D1C247BEDD100F220F1 /* DataTransforming.swift in Sources */,
 				0E986CF82479F58700F220F1 /* HTTPClient.swift in Sources */,
-				0E986CB324794DFC00F220F1 /* SwiftyWeatherApp+LocalizationKeys.swift in Sources */,
+				0E986CB324794DFC00F220F1 /* SwiftyWeatherApp+StringKeys.swift in Sources */,
 				0E986D07247A5CEF00F220F1 /* WeatherInteractor.swift in Sources */,
 				0E986D1E247BEEBD00F220F1 /* WeatherListDisplay.swift in Sources */,
 				0E986CFB2479F59300F220F1 /* WeatherFetchingRequest.swift in Sources */,
