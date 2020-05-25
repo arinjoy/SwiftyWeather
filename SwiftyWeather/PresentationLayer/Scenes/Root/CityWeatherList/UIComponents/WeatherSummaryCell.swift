@@ -24,6 +24,7 @@ final class WeatherSummaryCell: UITableViewCell {
         let label = UILabel()
         label.font = Theme.titleFont
         label.textAlignment = .left
+        label.numberOfLines = 2
         return label
     }()
     
@@ -32,7 +33,15 @@ final class WeatherSummaryCell: UITableViewCell {
         let label = UILabel()
         label.font = Theme.titleFont
         label.textAlignment = .right
+        label.numberOfLines = 1
         return label
+    }()
+    
+    private lazy var weatherIconView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .clear
+        return imageView
     }()
     
     // MARK: - Lifecycle
@@ -55,10 +64,11 @@ final class WeatherSummaryCell: UITableViewCell {
     
     private func buildUIAndApplyConstraints() {
         
-        contentView.addSubview(containerCardView)
         containerCardView.addSubview(cityNameLabel)
+        containerCardView.addSubview(weatherIconView)
         containerCardView.addSubview(temperatureLabel)
         
+        contentView.addSubview(containerCardView)
         containerCardView.snp.makeConstraints { make in
             make.leading.equalTo(contentView.snp.leading).offset(16)
             make.trailing.equalTo(contentView.snp.trailing).offset(-16)
@@ -70,6 +80,13 @@ final class WeatherSummaryCell: UITableViewCell {
             make.leading.equalTo(containerCardView.snp.leading).offset(20)
             make.top.equalTo(containerCardView.snp.top).offset(16)
             make.bottom.equalTo(containerCardView.snp.bottom).offset(-16)
+            make.width.lessThanOrEqualTo(containerCardView.snp.width).multipliedBy(0.7)
+        }
+
+        weatherIconView.snp.makeConstraints { make in
+            make.width.height.equalTo(50)
+            make.centerX.equalTo(containerCardView.snp.centerX).multipliedBy(1.15)
+            make.centerY.equalTo(containerCardView.snp.centerY)
         }
         
         temperatureLabel.snp.makeConstraints { make in
@@ -101,6 +118,8 @@ extension WeatherSummaryCell {
         // or even text string, font & colour can be combined as NSAttributed string
         cityNameLabel.textColor = Theme.primaryTextColor
         temperatureLabel.textColor = Theme.primaryTextColor
+        
+        weatherIconView.image = UIImage(named: "weather-icon")
         
         applyContainerStyle()
         

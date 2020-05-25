@@ -62,6 +62,7 @@ final class WeatherListViewController: UITableViewController {
     // MARK: - Private Helpers
     
     private func setupTableView() {
+        view.backgroundColor = Theme.lightBackgroundColor
         tableView.backgroundColor = Theme.lightBackgroundColor
         tableView.register(WeatherSummaryCell.self, forCellReuseIdentifier: "WeatherSummaryCell")
         
