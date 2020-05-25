@@ -9,6 +9,8 @@
 import UIKit
 import SnapKit
 
+/// Represents a custom `TableViewCell` for showing weather summary in the list
+/// Note: This class is totally written progrmamatically for UI elements for auto layouts wiithout any Xib or IB file.
 final class WeatherSummaryCell: UITableViewCell {
     
     // MARK: - UI Element Properties

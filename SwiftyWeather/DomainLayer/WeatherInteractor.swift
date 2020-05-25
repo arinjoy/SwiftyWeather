@@ -26,11 +26,14 @@ final class WeatherInteractor: WeatherInteracting {
         self.weatherFetchingService = weatherFetchingService
     }
     
+    
     func getWeather(forCityIDs cityIDs: [String]) ->  AnyPublisher<[CityWeather], APIError> {
         return weatherFetchingService.fetchWeather(forCityIDs: cityIDs)
             .map { self.mapCityWeatherList(from: $0.weatherList) }
             .eraseToAnyPublisher()
     }
+    
+    // MARK: - Pruvate Helpers
     
     /// Maps data from `NetworkLayer.CityWeatherDetails` to `DomainLayer.CityWeather`
     /// Note:  There is some subtle differences between data structures at two layers. Basically at domain layer the data is flattened

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         applyThemeStyles()
         
-        window?.rootViewController = UINavigationController(rootViewController: CityWeatherListViewController())
+        window?.rootViewController = UINavigationController(rootViewController: WeatherListViewController())
         window?.makeKeyAndVisible()
         return true
     }

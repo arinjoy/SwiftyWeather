@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WeatherSummaryPresentationItem {
+struct WeatherSummaryPresentationItem: Hashable {
     
     // Note: Ideally these view model properties can be just more than flat string.
     // They can be NSAttributedString to capture text as well as font, style and color.
@@ -27,6 +27,18 @@ struct WeatherSummaryPresentationItem {
         self.cityName = cityName
         self.currentTemperature = currentTemperature
         self.accessibility = accessibility
+    }
+    
+    // MARK: - Hashable
+    
+    let identifier = UUID()
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
+    }
+    
+    static func == (lhs: WeatherSummaryPresentationItem, rhs: WeatherSummaryPresentationItem) -> Bool {
+        return lhs.cityName == rhs.cityName && lhs.currentTemperature == rhs.currentTemperature
     }
 }
 

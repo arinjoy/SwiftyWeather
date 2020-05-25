@@ -9,9 +9,24 @@
 // MARK: - General
 
 "view.loading.title" = "Fetching weather...";
+"view.loaded.title" = "Weather";
 
-"error.dismiss.action.title" = "OK";
-"error.generic.title" = "Oops! Something wrong.";
+"error.generic.alert.title" = "Oops! Something wrong.";
+"error.generic.alert.message" = "There is a generic error. Please try again later.";
+"error.dismiss.action.dismiss" = "OK";
+"error.networkConnection.alert.message" = "Please check your network connection and try again.";
 
-"error.generic.message" = "There is a generic error. Please try again later.";
-"error.networkConnection.message" = "Please check your network connection and try again.";
+"home.tab.name" = "Weather";
+"settings.tab.name" = "Settings";
+
+"weather.detail.temp.unit" = "°C";
+"weather.detail.minTemp.prefix" = "Min";
+"weather.detail.maxTemp.prefix" = "Max";
+
+"weather.detail.humidity.unit" = "hpa";
+"weather.detail.humidity.prefix" = "Humidity";
+"weather.detail.windSpeed.unit" = "m/s";
+"weather.detail.windSpeed.prefix" = "Wind speed";
+
+"weather.list.item.accessibility.hint" = "Double tap to see more weather details";
+
