@@ -75,27 +75,27 @@ final class WeatherDetailView: UIView {
         return label
     }()
     
-    /// The reference to the wrapper stakc view to attach parent container accessbility
+    /// The reference to the wrapper stack view to attach parent container accessibility
     private var currentTemperatureStackView: UIStackView = UIStackView()
     private var minTemperatureStackView: UIStackView = UIStackView()
     private var maxTemperatureStackView: UIStackView = UIStackView()
     private var humidityStackView: UIStackView = UIStackView()
     private var windSpeedStackView: UIStackView = UIStackView()
     
-    private let maxTemperatureLabel: UILabel = {
+    private lazy var maxTemperatureLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .right
         return label
     }()
     
-    private let humidityIcon: UIImageView = {
+    private lazy var humidityIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    private let humidityPrefixLabel: UILabel = {
+    private lazy var humidityPrefixLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .left
@@ -103,20 +103,20 @@ final class WeatherDetailView: UIView {
         return label
     }()
     
-    private let humidityLabel: UILabel = {
+    private lazy var humidityLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .right
         return label
     }()
     
-    private let windSpeedIcon: UIImageView = {
+    private lazy var windSpeedIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    private let windSpeedPrefixLabel: UILabel = {
+    private lazy var windSpeedPrefixLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .left
@@ -124,12 +124,18 @@ final class WeatherDetailView: UIView {
         return label
     }()
     
-    private let windSpeedLabel: UILabel = {
+    private lazy var windSpeedLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         label.textAlignment = .right
         return label
     }()
+    
+    // MARK: - Constants
+    
+    enum Constant {
+        static let weatherAnimationTranlationLength = UIScreen.main.bounds.width / 2
+    }
     
     // MARK: - Lifecycle
     
@@ -282,14 +288,22 @@ final class WeatherDetailView: UIView {
     
     private func animateKeyElements() {
         shortDescriptionLabel.startBlink()
-        weatherIcon.startBlink()
         temperatureLabel.startBlink()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             self.shortDescriptionLabel.stopBlink()
-            self.weatherIcon.stopBlink()
             self.temperatureLabel.stopBlink()
         }
+        
+        UIView.animate(
+            withDuration: 5.0,
+            delay: 0.0,
+            options: [.allowUserInteraction, .curveEaseInOut, .autoreverse, .repeat],
+            animations: {
+                self.weatherIcon.layer.transform = CATransform3DMakeTranslation(Constant.weatherAnimationTranlationLength, 0, 0)
+            },
+            completion: nil)
+        
     }
 }
 
