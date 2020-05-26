@@ -18,7 +18,7 @@ final class WeatherListViewController: UITableViewController {
     
     private lazy var refresherControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.tintColor = Theme.tintColor
+        refreshControl.tintColor = Theme.Color.tintColor
         return refreshControl
     }()
     
@@ -66,8 +66,8 @@ final class WeatherListViewController: UITableViewController {
     // MARK: - Private Helpers
     
     private func setupTableView() {
-        view.backgroundColor = Theme.lightBackgroundColor
-        tableView.backgroundColor = Theme.lightBackgroundColor
+        view.backgroundColor = Theme.Color.lightBackgroundColor
+        tableView.backgroundColor = Theme.Color.lightBackgroundColor
         tableView.register(WeatherSummaryCell.self, forCellReuseIdentifier: "WeatherSummaryCell")
         
         tableView.rowHeight = UITableView.automaticDimension
@@ -75,7 +75,7 @@ final class WeatherListViewController: UITableViewController {
         tableView.separatorStyle = .none
         
         refreshControl = UIRefreshControl()
-        refreshControl?.tintColor = Theme.tintColor
+        refreshControl?.tintColor = Theme.Color.tintColor
         refreshControl?.addTarget(self, action: #selector(refreshWeatherData), for: .valueChanged)
         
         diffableDataSource = CityWeatherTableViewDiffableDataSource(tableView: tableView) { (tableView, indexPath, weatherSummaryPresentationItem) -> UITableViewCell? in

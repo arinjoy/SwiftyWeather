@@ -25,9 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func applyThemeStyles() {
-        window?.backgroundColor = Theme.backgroundColor
-        window?.tintColor = Theme.tintColor
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: Theme.titleFont,
-                                                            NSAttributedString.Key.foregroundColor: Theme.primaryTextColor, ]
+        window?.backgroundColor = Theme.Color.backgroundColor
+        window?.tintColor = Theme.Color.tintColor
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedString.Key.font: Theme.Font.titleFont,
+            NSAttributedString.Key.foregroundColor: Theme.Color.primaryTextColor,
+        ]
     }
 }

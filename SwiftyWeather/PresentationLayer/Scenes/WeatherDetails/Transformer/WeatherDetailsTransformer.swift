@@ -32,15 +32,15 @@ struct WeatherDetailsTransformer: DataTransforming {
             cityName: input.cityName,
             shortDescription: shortDescription,
             temperature: temperatureString(input.temperature),
-            temperatureIcon: nil,
+            temperatureIcon: Theme.Icon.thermoTemp.icon,
             minTemperature: temperatureString(input.minTemperature),
-            minTemperatureIcon: nil,
+            minTemperatureIcon: Theme.Icon.minTemp.icon,
             maxTemperature: temperatureString(input.maxTemperature),
-            maxTemperatureIcon: nil,
+            maxTemperatureIcon: Theme.Icon.maxTemp.icon,
             humidity: humidityString(input.humidity),
-            humidityIcon: nil,
+            humidityIcon: Theme.Icon.cloudHumid.icon,
             windSpeed: windSpeedString(input.windSpeed),
-            windSpeedIcon: nil,
+            windSpeedIcon: Theme.Icon.wind.icon,
             accessibility: nil
         )
         item.accessibility = itemAccessbility(input)

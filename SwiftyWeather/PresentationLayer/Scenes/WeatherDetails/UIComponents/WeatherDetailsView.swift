@@ -17,7 +17,7 @@ final class WeatherDetailView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
         label.textAlignment = .left
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         return label
     }()
     
@@ -230,23 +230,23 @@ final class WeatherDetailView: UIView {
     // MARK: - Private Helpers
     
     private func applyThemeColors() {
-        backgroundColor = Theme.lightBackgroundColor
+        backgroundColor = Theme.Color.lightBackgroundColor
 
-        shortDescriptionLabel.textColor = Theme.secondaryTextColor
+        shortDescriptionLabel.textColor = Theme.Color.secondaryTextColor
 
-        temperatureLabel.textColor = Theme.primaryTextColor
+        temperatureLabel.textColor = Theme.Color.primaryTextColor
 
-        minTemperaturePrefixLabel.textColor = Theme.primaryTextColor
-        minTemperatureLabel.textColor = Theme.secondaryTextColor
+        minTemperaturePrefixLabel.textColor = Theme.Color.primaryTextColor
+        minTemperatureLabel.textColor = Theme.Color.secondaryTextColor
 
-        maxTemperaturePrefixLabel.textColor = Theme.primaryTextColor
-        maxTemperatureLabel.textColor = Theme.secondaryTextColor
+        maxTemperaturePrefixLabel.textColor = Theme.Color.primaryTextColor
+        maxTemperatureLabel.textColor = Theme.Color.secondaryTextColor
 
-        humidityPrefixLabel.textColor = Theme.primaryTextColor
-        humidityLabel.textColor = Theme.secondaryTextColor
+        humidityPrefixLabel.textColor = Theme.Color.primaryTextColor
+        humidityLabel.textColor = Theme.Color.secondaryTextColor
 
-        windSpeedPrefixLabel.textColor = Theme.primaryTextColor
-        windSpeedLabel.textColor = Theme.secondaryTextColor
+        windSpeedPrefixLabel.textColor = Theme.Color.primaryTextColor
+        windSpeedLabel.textColor = Theme.Color.secondaryTextColor
     }
     
     private func applyAccessbility(_ accessibility: WeatherDetailsPresentationItem.Accessibility?) {
@@ -289,6 +289,10 @@ extension WeatherDetailView {
         
         windSpeedLabel.text = item.windSpeed
         windSpeedIcon.image = item.windSpeedIcon
+        
+        if item.windSpeed == nil {
+            windSpeedStackView.isHidden = true
+        }
         
         applyAccessbility(item.accessibility)
     }

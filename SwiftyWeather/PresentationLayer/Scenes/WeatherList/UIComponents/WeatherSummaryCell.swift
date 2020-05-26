@@ -22,7 +22,7 @@ final class WeatherSummaryCell: UITableViewCell {
     
     private lazy var cityNameLabel: UILabel = {
         let label = UILabel()
-        label.font = Theme.titleFont
+        label.font = Theme.Font.titleFont
         label.textAlignment = .left
         label.numberOfLines = 2
         return label
@@ -31,7 +31,7 @@ final class WeatherSummaryCell: UITableViewCell {
     
     private lazy var temperatureLabel: UILabel = {
         let label = UILabel()
-        label.font = Theme.titleFont
+        label.font = Theme.Font.titleFont
         label.textAlignment = .right
         label.numberOfLines = 1
         return label
@@ -40,7 +40,6 @@ final class WeatherSummaryCell: UITableViewCell {
     private lazy var weatherIconView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .clear
         return imageView
     }()
     
@@ -52,8 +51,8 @@ final class WeatherSummaryCell: UITableViewCell {
         self.selectionStyle = UITableViewCell.SelectionStyle.none
         buildUIAndApplyConstraints()
         
-        containerCardView.backgroundColor = Theme.backgroundColor
-        contentView.backgroundColor = Theme.lightBackgroundColor
+        containerCardView.backgroundColor = Theme.Color.backgroundColor
+        contentView.backgroundColor = Theme.Color.lightBackgroundColor
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -97,7 +96,7 @@ final class WeatherSummaryCell: UITableViewCell {
     }
     
     private func applyContainerStyle() {
-        Shadow(color: Theme.primaryTextColor,
+        Shadow(color: Theme.Color.primaryTextColor,
                opacity: 0.3, blur: 4,
                offset: CGSize(width: 0, height: 2))
             .apply(toView: containerCardView)
@@ -116,8 +115,8 @@ extension WeatherSummaryCell {
     
         // Note: Ideally colors can be passed via presentation items or view models
         // or even text string, font & colour can be combined as NSAttributed string
-        cityNameLabel.textColor = Theme.primaryTextColor
-        temperatureLabel.textColor = Theme.primaryTextColor
+        cityNameLabel.textColor = Theme.Color.primaryTextColor
+        temperatureLabel.textColor = Theme.Color.primaryTextColor
         
         weatherIconView.image = UIImage(named: "weather-icon")
         

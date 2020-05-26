@@ -48,7 +48,7 @@ final class WeatherDetailsViewController: UIViewController {
         (presenter as? WeatherDetailsPresenter)?.sceneModel = sceneModel
         
         buildUIAndApplyConstraints()
-        view.backgroundColor = Theme.lightBackgroundColor
+        view.backgroundColor = Theme.Color.lightBackgroundColor
         
         presenter.viewDidBecomeReady()
     }
