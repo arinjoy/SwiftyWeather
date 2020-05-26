@@ -11,6 +11,11 @@ import UIKit
 
 typealias WeatherListDataSource = DataSource<DataSection<WeatherSummaryPresentationItem>>
 
+// Note: Not using `UITableViewDiffableDataSource` as it does not support
+// `SkeletonView` library to show shimmers. So rolling back Diffable data source
+// code and putting in own abstractor code called `DataSource<DatSection<Item>>`
+
+
 /// A section within the table view
 enum Section {
     /// Just one main section
