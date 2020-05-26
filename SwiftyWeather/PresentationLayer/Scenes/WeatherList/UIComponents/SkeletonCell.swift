@@ -76,9 +76,9 @@ final class SkeletonCell: UITableViewCell {
         
         stackView.snp.makeConstraints { make in
             make.leading.equalTo(contentView.snp.leading).offset(Constants.cellMargin)
-            make.trailing.equalTo(contentView.snp.trailing).offset(-Constants.cellMargin)//.priority(999)
+            make.trailing.equalTo(contentView.snp.trailing).offset(-Constants.cellMargin)
             make.top.equalTo(contentView.snp.top).offset(Constants.cellMargin)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-Constants.cellMargin)//.priority(999)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-Constants.cellMargin)
         }
     }
 }

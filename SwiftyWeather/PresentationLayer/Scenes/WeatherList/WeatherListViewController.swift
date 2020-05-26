@@ -70,6 +70,18 @@ final class WeatherListViewController: UITableViewController {
         presenter.loadCurrentWeatherOfCities(isRereshingNeeded: true)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        presenter.startPollingWeather()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        presenter.stopPollingWeather()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 

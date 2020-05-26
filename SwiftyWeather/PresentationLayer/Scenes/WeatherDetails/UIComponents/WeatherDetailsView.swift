@@ -134,7 +134,7 @@ final class WeatherDetailView: UIView {
     // MARK: - Constants
     
     enum Constant {
-        static let weatherAnimationTranlationLength = UIScreen.main.bounds.width / 2
+        static let weatherAnimationTranslationLength = UIScreen.main.bounds.width / 2
     }
     
     // MARK: - Lifecycle
@@ -300,7 +300,7 @@ final class WeatherDetailView: UIView {
             delay: 0.0,
             options: [.allowUserInteraction, .curveEaseInOut, .autoreverse, .repeat],
             animations: {
-                self.weatherIcon.layer.transform = CATransform3DMakeTranslation(Constant.weatherAnimationTranlationLength, 0, 0)
+                self.weatherIcon.layer.transform = CATransform3DMakeTranslation(Constant.weatherAnimationTranslationLength, 0, 0)
             },
             completion: nil)
         

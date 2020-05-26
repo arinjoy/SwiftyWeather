@@ -21,10 +21,16 @@ protocol WeatherListPresenting: class {
     
     /// Called when user taps an item form the weather list
     func didTapCityWeather(at index: Int)
+    
+    /// Start polling the weather fetching every ten seconds
+    func startPollingWeather()
+    
+    /// Start polling the weather fetching when not needed
+    func stopPollingWeather()
 }
 
 final class WeatherListPresenter: WeatherListPresenting {
-    
+
     /// The front-facing view that conforms to the `WeatherListDisplay` protocol
     weak var display: WeatherListDisplay?
     
@@ -34,7 +40,10 @@ final class WeatherListPresenter: WeatherListPresenting {
     // MARK: - Private Properties
     
     /// The interactor to fetch weather data of cities
-    private let interactor: WeatherInteracting!
+    private let interactor: WeatherInteracting
+    
+    /// A Timer Publisher as per `Combine` that would events every X seconds which helps in periodic data refreshing
+    var tenSecondsTimer: Timer.TimerPublisher!
     
     /// List of weather data fetched
     private var weatherListData: [CityWeather]?
@@ -68,8 +77,6 @@ final class WeatherListPresenter: WeatherListPresenting {
         
         display?.showLoadingIndicator()
         
-        let service = WeatherFetchingServiceClient(dataSource: HTTPClient.shared)
-        let interactor = WeatherInteractor(weatherFetchingService: service)
         interactor.getWeather(forCityIDs: Constant.cityIDs)
         .sink(receiveCompletion: { [weak self] completion in
             if case let .failure(error) = completion {
@@ -90,6 +97,19 @@ final class WeatherListPresenter: WeatherListPresenting {
         
         let weather = weatherList[index]
         router?.routeToWeatherDetails(withSceneModel: weather)
+    }
+    
+    func startPollingWeather() {
+        tenSecondsTimer = Timer.publish(every: 10, on: .main, in: .common)
+        _ = tenSecondsTimer.connect()
+        tenSecondsTimer
+        .sink { _ in
+            self.loadCurrentWeatherOfCities(isRereshingNeeded: true)
+        }.store(in: &cancellableSet)
+    }
+    
+    func stopPollingWeather() {
+        tenSecondsTimer.connect().cancel()
     }
     
     // MARK: - Private Helpers
