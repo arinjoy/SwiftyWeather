@@ -125,7 +125,7 @@ extension WeatherSummaryCell {
         
         weatherIconView.image = nil
         if let iconURL = item.iconURL {
-            weatherIconView.downloadedImage(fromURL: iconURL)
+            weatherIconView.downloadImage(fromURL: iconURL)
         }
         
         applyContainerStyle()

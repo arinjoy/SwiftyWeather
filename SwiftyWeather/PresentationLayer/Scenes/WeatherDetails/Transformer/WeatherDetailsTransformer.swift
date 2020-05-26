@@ -31,6 +31,7 @@ struct WeatherDetailsTransformer: DataTransforming {
         var item = WeatherDetailsPresentationItem(
             cityName: input.cityName,
             shortDescription: shortDescription,
+            iconURL: input.iconURL,
             temperature: temperatureString(input.temperature),
             temperatureIcon: Theme.Icon.thermoTemp.icon,
             minTemperature: temperatureString(input.minTemperature),
@@ -69,6 +70,11 @@ struct WeatherDetailsTransformer: DataTransforming {
     
     private func itemAccessbility(_ input: CityWeather) -> WeatherDetailsPresentationItem.Accessibility {
         return WeatherDetailsPresentationItem.Accessibility(
+            weatherIconAccessibility: AccessibilityConfiguration(
+                identifier: "accessibilityId.weatherDetails.weatherIcon",
+                label: "weather image",
+                hint: "visual clue of the weather"
+            ),
             currentTemperatureAccessibility: AccessibilityConfiguration(
                 identifier: "accessibilityId.weatherDetails.currentTemp",
                 label: UIAccessibility.createCombinedAccessibilityLabel(

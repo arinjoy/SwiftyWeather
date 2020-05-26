@@ -12,7 +12,7 @@ import UIKit
 extension UIImageView {
     
     /// Downloads an image from an URL and sets up with desired content aspect fitting mode
-    func downloadedImage(fromURL url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+    func downloadImage(fromURL url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         
         contentMode = mode
         

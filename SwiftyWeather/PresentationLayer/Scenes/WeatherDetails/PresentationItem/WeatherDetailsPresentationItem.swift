@@ -13,6 +13,7 @@ struct WeatherDetailsPresentationItem {
     
     let cityName: String
     let shortDescription: String?
+    let iconURL: URL?
     
     let temperature: String
     let temperatureIcon: UIImage?
@@ -30,6 +31,7 @@ struct WeatherDetailsPresentationItem {
     let windSpeedIcon: UIImage?
     
     struct Accessibility {
+        let weatherIconAccessibility: AccessibilityConfiguration
         let currentTemperatureAccessibility: AccessibilityConfiguration
         let minTemperatureAccessibility: AccessibilityConfiguration
         let maxTemperatureAccessibility: AccessibilityConfiguration

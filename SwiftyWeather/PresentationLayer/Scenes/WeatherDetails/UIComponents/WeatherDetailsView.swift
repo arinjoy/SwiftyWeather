@@ -21,6 +21,12 @@ final class WeatherDetailView: UIView {
         return label
     }()
     
+    private lazy var weatherIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     private lazy var temperatureIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -140,11 +146,19 @@ final class WeatherDetailView: UIView {
     // MARK: - Private Helpers
     
     private func buildUIAndApplyConstraints() {
-        let topStackView = UIStackView(arrangedSubviews: [shortDescriptionLabel])
+        let topStackView = UIStackView()
         topStackView.axis = .vertical
         topStackView.alignment = .leading
         topStackView.distribution = .fill
         topStackView.spacing = 10
+        
+        topStackView.addArrangedSubview(shortDescriptionLabel)
+        topStackView.addArrangedSubview(weatherIcon)
+        
+        weatherIcon.snp.makeConstraints { make in
+            make.width.equalTo(110)
+            make.height.equalTo(110)
+        }
         
         for view in [temperatureIcon, temperatureLabel] {
             currentTemperatureStackView.addArrangedSubview(view)
@@ -194,7 +208,7 @@ final class WeatherDetailView: UIView {
         wrapperStackView.axis = .vertical
         wrapperStackView.distribution = .fill
         wrapperStackView.alignment = .fill
-        wrapperStackView.spacing = 20
+        wrapperStackView.spacing = 0
         addSubview(wrapperStackView)
         
         padderView.snp.makeConstraints { make in
@@ -265,6 +279,18 @@ final class WeatherDetailView: UIView {
         windSpeedStackView.isAccessibilityElement = true
         accessibility?.windSpeedAccessibility.apply(to: windSpeedStackView)
     }
+    
+    private func animateKeyElements() {
+        shortDescriptionLabel.startBlink()
+        weatherIcon.startBlink()
+        temperatureLabel.startBlink()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+            self.shortDescriptionLabel.stopBlink()
+            self.weatherIcon.stopBlink()
+            self.temperatureLabel.stopBlink()
+        }
+    }
 }
 
 // MARK: - Configuration
@@ -274,6 +300,13 @@ extension WeatherDetailView {
     func configure(withPresentationItem item: WeatherDetailsPresentationItem) {
         
         shortDescriptionLabel.text = item.shortDescription
+        
+        if let iconURL = item.iconURL {
+            weatherIcon.isHidden = false
+            weatherIcon.downloadImage(fromURL: iconURL)
+        } else {
+            weatherIcon.isHidden = true
+        }
         
         temperatureLabel.text = item.temperature
         temperatureIcon.image = item.temperatureIcon
@@ -296,11 +329,6 @@ extension WeatherDetailView {
         
         applyAccessbility(item.accessibility)
         
-        shortDescriptionLabel.startBlink()
-        temperatureLabel.startBlink()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.shortDescriptionLabel.stopBlink()
-            self.temperatureLabel.stopBlink()
-        }
+        animateKeyElements()
     }
 }

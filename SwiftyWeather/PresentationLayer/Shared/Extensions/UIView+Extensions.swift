@@ -12,7 +12,7 @@ import UIKit
 extension UIView {
 
     func startBlink() {
-        UIView.animate(withDuration: 0.5,
+        UIView.animate(withDuration: 0.6,
               delay: 0.0,
               options: [.allowUserInteraction, .curveEaseInOut, .autoreverse, .repeat],
               animations: { self.alpha = 0.3 },
