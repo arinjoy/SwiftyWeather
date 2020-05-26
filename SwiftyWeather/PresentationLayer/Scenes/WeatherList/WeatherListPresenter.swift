@@ -56,6 +56,7 @@ final class WeatherListPresenter: WeatherListPresenting {
     /// The data tranforming helper
     private let tranformer = WeatherListTransformer()
     
+    /// The combine's dispose bag set
     private var cancellableSet: Set<AnyCancellable> = []
     
     enum Constant {
