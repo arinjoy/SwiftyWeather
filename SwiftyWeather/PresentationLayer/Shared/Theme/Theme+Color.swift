@@ -35,7 +35,7 @@ extension Theme {
         
         static let secondaryTextColor = Theme.Color.primaryTextColor.withAlphaComponent(0.75)
         
-        static let shimmerBaseColor = Theme.Color.lightBackgroundColor
+        static let shimmerBaseColor = Theme.Color.darkBlueColor
         
         static let shimmerGradientColor = UIColor(
             light: Theme.Color.shimmerBaseColor.withAlphaComponent(0.5),

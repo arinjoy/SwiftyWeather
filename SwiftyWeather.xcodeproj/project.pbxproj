@@ -51,6 +51,7 @@
 		0E986D38247D1ECF00F220F1 /* Theme+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986D37247D1ECF00F220F1 /* Theme+Icon.swift */; };
 		0E986D3A247D1FBC00F220F1 /* Theme+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986D39247D1FBC00F220F1 /* Theme+Font.swift */; };
 		0E986D3D247D282500F220F1 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986D3C247D282500F220F1 /* UIView+Extensions.swift */; };
+		0E986D3F247D429C00F220F1 /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986D3E247D429C00F220F1 /* SkeletonCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		0E986D37247D1ECF00F220F1 /* Theme+Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Icon.swift"; sourceTree = "<group>"; };
 		0E986D39247D1FBC00F220F1 /* Theme+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Font.swift"; sourceTree = "<group>"; };
 		0E986D3C247D282500F220F1 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		0E986D3E247D429C00F220F1 /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				0E986D0F247A9BC800F220F1 /* WeatherSummaryCell.swift */,
+				0E986D3E247D429C00F220F1 /* SkeletonCell.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				0E986CB124794D9C00F220F1 /* LocalizationKeys.swift in Sources */,
 				0E986D13247A9C0B00F220F1 /* Shadow.swift in Sources */,
 				0E986D26247D0C5000F220F1 /* WeatherDetailsViewController.swift in Sources */,
+				0E986D3F247D429C00F220F1 /* SkeletonCell.swift in Sources */,
 				0E986D19247BEB1000F220F1 /* WeatherListTransformer.swift in Sources */,
 				0E986D34247D0DBA00F220F1 /* WeatherDetailsView.swift in Sources */,
 				0E986D36247D10E800F220F1 /* TableView+DiffableDataSource.swift in Sources */,

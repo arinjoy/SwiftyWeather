@@ -14,8 +14,6 @@ final class WeatherListViewController: UITableViewController {
 
     // MARK: - IB Outlets
     
-   // @IBOutlet private weak var tableView: UITableView!
-    
     private lazy var refresherControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = Theme.Color.tintColor
@@ -25,8 +23,10 @@ final class WeatherListViewController: UITableViewController {
     
     // MARK: - Private Properties
     
+    /// The data source attached to the table view
     private var diffableDataSource: CityWeatherTableViewDiffableDataSource!
     
+    /// Subcribers cancellable set as dispose bags
     private var cancellableSet: Set<AnyCancellable> = []
     
     /// The presenter conforming to the `FactsListPresenting`
@@ -50,6 +50,15 @@ final class WeatherListViewController: UITableViewController {
         return presenter
     }()
     
+    private lazy var skeletonGradient: SkeletonGradient = {
+        return SkeletonGradient(baseColor: Theme.Color.shimmerBaseColor,
+                                secondaryColor: Theme.Color.shimmerGradientColor)
+    }()
+    
+    private lazy var skeletonAnimation: SkeletonLayerAnimation = {
+        return SkeletonAnimationBuilder().makeSlidingAnimation(withDirection: .leftRight)
+    }()
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -59,10 +68,14 @@ final class WeatherListViewController: UITableViewController {
         
         presenter.viewDidBecomeReady()
         presenter.loadCurrentWeatherOfCities(isRereshingNeeded: true)
-        refreshControl?.beginRefreshing()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        tableView.layoutSkeletonIfNeeded()
     }
 
-    
     // MARK: - Private Helpers
     
     private func setupTableView() {
@@ -85,6 +98,10 @@ final class WeatherListViewController: UITableViewController {
             cell.configure(withPresentationItem: weatherSummaryPresentationItem)
             return cell
         }
+        
+        tableView.register(SkeletonCell.self,
+                           forCellReuseIdentifier: SkeletonCell.cellReuseIdentifier)
+        tableView.isSkeletonable = true
     }
     
     @objc
@@ -99,7 +116,23 @@ final class WeatherListViewController: UITableViewController {
     }
 }
 
+extension WeatherListViewController: SkeletonTableViewDataSource {
+
+    func numSections(in collectionSkeletonView: UITableView) -> Int {
+        return 1
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Constant.cityIDs.count
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return SkeletonCell.cellReuseIdentifier
+    }
+}
+
 extension WeatherListViewController: WeatherListDisplay {
+    
     func setTitle(_ title: String) {
         self.title = title
     }
@@ -109,12 +142,15 @@ extension WeatherListViewController: WeatherListDisplay {
     }
     
     func showLoadingIndicator() {
-        // TODO: Show shimmers
+        refreshControl?.beginRefreshing()
+        tableView.showAnimatedGradientSkeleton(usingGradient: skeletonGradient,
+                                               animation: skeletonAnimation,
+                                               transition: .crossDissolve(0.25))
     }
     
     func hideLoadingIndicator() {
         refreshControl?.endRefreshing()
-        // TODO: Hide shimmers
+        tableView.hideSkeleton()
     }
     
     func showError(title: String, message: String, dismissTitle: String) {
