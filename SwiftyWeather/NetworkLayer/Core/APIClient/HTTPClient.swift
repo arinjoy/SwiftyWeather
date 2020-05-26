@@ -11,12 +11,20 @@ import Combine
 
 final class HTTPClient: FutureDataSource {
     
+    /// The single shared instance of `HTTPClient`
     static let shared = HTTPClient()
+    
+    // MARK: - Open Properties
+    
+    /// The shared default session
+    let defaultSession = URLSession.shared
+    
+    /// A cache for storing image data loaded from urls
+    let cache = URLCache.shared
     
     // MARK: - Private Properties
     
     private var subscriptions = Set<AnyCancellable>()
-    private let urlSession = URLSession.shared
 
     private init() {}
 
@@ -27,7 +35,7 @@ final class HTTPClient: FutureDataSource {
         
         return Future<T, APIError> { [unowned self] promise in
             
-            self.urlSession.dataTaskPublisher(for: request.urlRequest)
+            self.defaultSession.dataTaskPublisher(for: request.urlRequest)
             .tryMap { data, response in
                 guard let response = response as? HTTPURLResponse else {
                     throw APIError.unknown
