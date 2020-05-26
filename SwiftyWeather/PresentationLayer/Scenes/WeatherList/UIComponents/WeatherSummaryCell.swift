@@ -15,12 +15,12 @@ final class WeatherSummaryCell: UITableViewCell {
     
     // MARK: - UI Element Properties
     
-    private let containerCardView: UIView = {
+    private lazy var containerCardView: UIView = {
         let view = UIView()
         return view
     }()
     
-    private let cityNameLabel: UILabel = {
+    private lazy var cityNameLabel: UILabel = {
         let label = UILabel()
         label.font = Theme.titleFont
         label.textAlignment = .left
@@ -29,7 +29,7 @@ final class WeatherSummaryCell: UITableViewCell {
     }()
     
     
-    private let temperatureLabel: UILabel = {
+    private lazy var temperatureLabel: UILabel = {
         let label = UILabel()
         label.font = Theme.titleFont
         label.textAlignment = .right

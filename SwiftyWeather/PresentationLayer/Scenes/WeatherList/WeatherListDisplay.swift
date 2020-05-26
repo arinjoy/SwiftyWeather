@@ -7,13 +7,6 @@
 //
 
 import Foundation
-import UIKit
-
-enum Section {
-    case main
-}
-
-typealias WeatherListDataSource = NSDiffableDataSourceSnapshot<Section, WeatherSummaryPresentationItem>
 
 protocol WeatherListDisplay: class {
     

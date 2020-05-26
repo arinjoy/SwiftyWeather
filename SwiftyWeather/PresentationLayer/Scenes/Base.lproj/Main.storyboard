@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,10 +21,29 @@
                             <outlet property="delegate" destination="0ij-54-0fy" id="p8z-Cj-7JA"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="VOF-I4-8Nr" kind="push" id="fgE-CB-T0A"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLi-qv-D0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-567" y="-4"/>
+        </scene>
+        <!--Weather Details View Controller-->
+        <scene sceneID="dij-2i-Zw8">
+            <objects>
+                <viewController id="VOF-I4-8Nr" customClass="WeatherDetailsViewController" customModule="SwiftyWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jmP-4F-coM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="62T-Nm-Ft8"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wtB-fi-OoC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uXa-7F-NXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="217" y="-4"/>
         </scene>
     </scenes>
 </document>

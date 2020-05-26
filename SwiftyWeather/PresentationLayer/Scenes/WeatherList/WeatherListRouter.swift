@@ -27,9 +27,8 @@ final class WeatherListRouter: WeatherListRouting {
     }
     
     func routeToWeatherDetails(withSceneModel sceneModel: CityWeather) {
-        // TODO:
-//        let detailsViewController = WeatherDetailsViewController(sceneModel: sceneModel)
-//        sourceViewController?.show(detailsViewController, sender: nil)
+        let detailsViewController = WeatherDetailsViewController(sceneModel: sceneModel)
+        sourceViewController?.show(detailsViewController, sender: nil)
     }
 }
 

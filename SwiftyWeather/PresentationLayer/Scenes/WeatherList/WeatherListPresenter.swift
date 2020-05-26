@@ -53,7 +53,7 @@ final class WeatherListPresenter: WeatherListPresenting {
     // MARK: - WeatherListPresenting
     
     func viewDidBecomeReady() {
-        display?.setTitle(StringKeys.SwiftyWeatherApp.viewLoadingTitle.localized())
+        display?.setTitle(StringKeys.SwiftyWeatherApp.viewTitle.localized())
     }
     
     func loadCurrentWeatherOfCities(isRereshingNeeded: Bool) {
@@ -66,7 +66,6 @@ final class WeatherListPresenter: WeatherListPresenting {
             return
         }
         
-        display?.setTitle(StringKeys.SwiftyWeatherApp.viewLoadingTitle.localized())
         display?.showLoadingIndicator()
         
         let service = WeatherFetchingServiceClient(dataSource: HTTPClient.shared)
@@ -98,8 +97,6 @@ final class WeatherListPresenter: WeatherListPresenting {
     private func handleUpdatingDataSource(_ input: [CityWeather]) {
         // Keep reference to the latest fetched weather data
         weatherListData = input
-        
-        display?.setTitle(StringKeys.SwiftyWeatherApp.viewLoadedTitle.localized())
         
         let presentationItems = tranformer.transform(input: input)
         var dataSource = WeatherListDataSource()

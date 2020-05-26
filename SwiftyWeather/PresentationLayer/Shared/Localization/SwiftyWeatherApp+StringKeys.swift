@@ -14,8 +14,7 @@ extension StringKeys {
         
         // MARK: - General
         
-        case viewLoadingTitle = "view.loading.title"
-        case viewLoadedTitle = "view.loaded.title"
+        case viewTitle = "view.navigation.title"
         
         case temperatureUnit = "weather.detail.temp.unit"
         case minTempPrefix = "weather.detail.minTemp.prefix"

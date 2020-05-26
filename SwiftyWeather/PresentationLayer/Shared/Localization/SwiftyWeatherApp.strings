@@ -8,8 +8,7 @@
 
 // MARK: - General
 
-"view.loading.title" = "Fetching weather...";
-"view.loaded.title" = "Weather";
+"view.navigation.title" = "Weather";
 
 "error.generic.alert.title" = "Oops! Something wrong.";
 "error.generic.alert.message" = "There is a generic error. Please try again later.";

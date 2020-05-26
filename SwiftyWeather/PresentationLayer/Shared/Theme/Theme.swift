@@ -18,7 +18,7 @@ enum Theme {
     static let backgroundColor =  UIColor(light: Theme.skyBlueColor,
                                           dark: Theme.darkBlueColor)
     static let lightBackgroundColor = UIColor(
-        light: UIColor.colorFrom(red: 197, green: 241, blue: 255),
+        light: UIColor.colorFrom(red: 213, green: 249, blue: 255),
         dark: UIColor.colorFrom(red: 20, green: 34, blue: 95))
     
     static let tintColor = UIColor(light: .systemPurple,
@@ -27,6 +27,8 @@ enum Theme {
     static let primaryTextColor = UIColor(
         light: Theme.darkBlueColor,
         dark: UIColor.colorFrom(red: 246, green: 242, blue: 241))
+    
+    static let secondaryTextColor = Theme.primaryTextColor.withAlphaComponent(0.75)
     
     static let shimmerBaseColor = Theme.lightBackgroundColor
     

@@ -46,6 +46,7 @@ final class WeatherListViewController: UITableViewController {
             )
         )
         presenter.display = self
+        presenter.router = WeatherListRouter(sourceViewController: self)
         return presenter
     }()
     
@@ -55,9 +56,12 @@ final class WeatherListViewController: UITableViewController {
         super.viewDidLoad()
         
         setupTableView()
+        
+        presenter.viewDidBecomeReady()
+        presenter.loadCurrentWeatherOfCities(isRereshingNeeded: true)
         refreshControl?.beginRefreshing()
-        refreshWeatherData()
     }
+
     
     // MARK: - Private Helpers
     
@@ -86,6 +90,12 @@ final class WeatherListViewController: UITableViewController {
     @objc
     private func refreshWeatherData() {
         presenter.loadCurrentWeatherOfCities(isRereshingNeeded: true)
+    }
+    
+    // MARK: - UITableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didTapCityWeather(at: indexPath.row)
     }
 }
 
@@ -119,8 +129,3 @@ extension WeatherListViewController: WeatherListDisplay {
         present(alertController, animated: true, completion: nil)
     }
 }
-
-class CityWeatherTableViewDiffableDataSource: UITableViewDiffableDataSource<Section, WeatherSummaryPresentationItem> {
-}
-
-
