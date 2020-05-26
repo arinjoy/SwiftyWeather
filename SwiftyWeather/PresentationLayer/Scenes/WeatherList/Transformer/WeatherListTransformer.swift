@@ -29,7 +29,8 @@ struct WeatherListTransformer: DataTransforming {
             
             var item = WeatherSummaryPresentationItem(
                 cityName: item.cityName,
-                currentTemperature: temrperatureString)
+                currentTemperature: temrperatureString,
+                iconURL: item.iconURL)
             
             item.accessibility = AccessibilityConfiguration(
                 identifier: "swiftyWeatherApp.accessibilityId.weatherCell",

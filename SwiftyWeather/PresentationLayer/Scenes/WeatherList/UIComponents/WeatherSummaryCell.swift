@@ -28,7 +28,6 @@ final class WeatherSummaryCell: UITableViewCell {
         return label
     }()
     
-    
     private lazy var temperatureLabel: UILabel = {
         let label = UILabel()
         label.font = Theme.Font.titleFont
@@ -59,6 +58,12 @@ final class WeatherSummaryCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        weatherIconView.image = nil
+    }
+    
     // MARK: - Private Helpers
     
     private func buildUIAndApplyConstraints() {
@@ -83,7 +88,7 @@ final class WeatherSummaryCell: UITableViewCell {
         }
 
         weatherIconView.snp.makeConstraints { make in
-            make.width.height.equalTo(50)
+            make.width.height.equalTo(60)
             make.centerX.equalTo(containerCardView.snp.centerX).multipliedBy(1.15)
             make.centerY.equalTo(containerCardView.snp.centerY)
         }
@@ -118,7 +123,10 @@ extension WeatherSummaryCell {
         cityNameLabel.textColor = Theme.Color.primaryTextColor
         temperatureLabel.textColor = Theme.Color.primaryTextColor
         
-        weatherIconView.image = UIImage(named: "weather-icon")
+        weatherIconView.image = nil
+        if let iconURL = item.iconURL {
+            weatherIconView.downloadedImage(fromURL: iconURL)
+        }
         
         applyContainerStyle()
         

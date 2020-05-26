@@ -10,22 +10,26 @@ import Foundation
 
 struct WeatherSummaryPresentationItem: Hashable {
     
-    // Note: Ideally these view model properties can be just more than flat string.
+    // Note: Ideally these view model properties can be just more than flat strings.
     // They can be NSAttributedString to capture text as well as font, style and color.
-    // The relevant tranformers should have knowledge about the styles and create attributed strings
-    // to simply passed around so that they can be attached to the UI labels to directly get the desired style
+    // The relevant tranformers should have knowledge about the styles and create attributed
+    // strings to simply pass around so that they can be attached to the UI labels to directly
+    // get the desired style
     
     let cityName: String
     let currentTemperature: String
+    let iconURL: URL?
     
     var accessibility: AccessibilityConfiguration?
     
     init(cityName: String,
          currentTemperature: String,
+         iconURL: URL?,
          accessibility: AccessibilityConfiguration? = nil
     ) {
         self.cityName = cityName
         self.currentTemperature = currentTemperature
+        self.iconURL = iconURL
         self.accessibility = accessibility
     }
     

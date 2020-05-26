@@ -52,6 +52,7 @@
 		0E986D3A247D1FBC00F220F1 /* Theme+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986D39247D1FBC00F220F1 /* Theme+Font.swift */; };
 		0E986D3D247D282500F220F1 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986D3C247D282500F220F1 /* UIView+Extensions.swift */; };
 		0E986D3F247D429C00F220F1 /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986D3E247D429C00F220F1 /* SkeletonCell.swift */; };
+		0E986D42247D484400F220F1 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986D41247D484400F220F1 /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		0E986D39247D1FBC00F220F1 /* Theme+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Font.swift"; sourceTree = "<group>"; };
 		0E986D3C247D282500F220F1 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		0E986D3E247D429C00F220F1 /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
+		0E986D41247D484400F220F1 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +213,7 @@
 		0E986CB924794F0100F220F1 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				0E986D3B247D280700F220F1 /* Animations */,
+				0E986D40247D481800F220F1 /* Extensions */,
 				0E986D1A247BEDB400F220F1 /* DataTransform */,
 				0E986D11247A9BFD00F220F1 /* UI */,
 				0E986CAC24794D4400F220F1 /* Theme */,
@@ -434,12 +436,13 @@
 			path = UIComponents;
 			sourceTree = "<group>";
 		};
-		0E986D3B247D280700F220F1 /* Animations */ = {
+		0E986D40247D481800F220F1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				0E986D3C247D282500F220F1 /* UIView+Extensions.swift */,
+				0E986D41247D484400F220F1 /* UIImageView+Extensions.swift */,
 			);
-			path = Animations;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -621,6 +624,7 @@
 				0E986D07247A5CEF00F220F1 /* WeatherInteractor.swift in Sources */,
 				0E986D1E247BEEBD00F220F1 /* WeatherListDisplay.swift in Sources */,
 				0E986CFB2479F59300F220F1 /* WeatherFetchingRequest.swift in Sources */,
+				0E986D42247D484400F220F1 /* UIImageView+Extensions.swift in Sources */,
 				0E986C9924794BC700F220F1 /* AppDelegate.swift in Sources */,
 				0E986D31247D0D5400F220F1 /* WeatherDetailsPresentationItem.swift in Sources */,
 				0E986CF92479F58700F220F1 /* FutureDataSource.swift in Sources */,
