@@ -50,6 +50,7 @@
 		0E986D36247D10E800F220F1 /* TableView+DiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986D35247D10E800F220F1 /* TableView+DiffableDataSource.swift */; };
 		0E986D38247D1ECF00F220F1 /* Theme+Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986D37247D1ECF00F220F1 /* Theme+Icon.swift */; };
 		0E986D3A247D1FBC00F220F1 /* Theme+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986D39247D1FBC00F220F1 /* Theme+Font.swift */; };
+		0E986D3D247D282500F220F1 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E986D3C247D282500F220F1 /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		0E986D35247D10E800F220F1 /* TableView+DiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+DiffableDataSource.swift"; sourceTree = "<group>"; };
 		0E986D37247D1ECF00F220F1 /* Theme+Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Icon.swift"; sourceTree = "<group>"; };
 		0E986D39247D1FBC00F220F1 /* Theme+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Font.swift"; sourceTree = "<group>"; };
+		0E986D3C247D282500F220F1 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 		0E986CB924794F0100F220F1 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				0E986D3B247D280700F220F1 /* Animations */,
 				0E986D1A247BEDB400F220F1 /* DataTransform */,
 				0E986D11247A9BFD00F220F1 /* UI */,
 				0E986CAC24794D4400F220F1 /* Theme */,
@@ -428,6 +431,14 @@
 			path = UIComponents;
 			sourceTree = "<group>";
 		};
+		0E986D3B247D280700F220F1 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				0E986D3C247D282500F220F1 /* UIView+Extensions.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -583,6 +594,7 @@
 				0E986D10247A9BC800F220F1 /* WeatherSummaryCell.swift in Sources */,
 				0E986D16247AA10700F220F1 /* WeatherSummaryPresentationItem.swift in Sources */,
 				0E986CB724794EC400F220F1 /* Accessibility+Helpers.swift in Sources */,
+				0E986D3D247D282500F220F1 /* UIView+Extensions.swift in Sources */,
 				0E986CAE24794D5900F220F1 /* Theme+Color.swift in Sources */,
 				0E986C9D24794BC700F220F1 /* WeatherListViewController.swift in Sources */,
 				0E986D0C247A6B4100F220F1 /* CityWeather.swift in Sources */,

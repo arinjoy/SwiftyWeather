@@ -295,5 +295,12 @@ extension WeatherDetailView {
         }
         
         applyAccessbility(item.accessibility)
+        
+        shortDescriptionLabel.startBlink()
+        temperatureLabel.startBlink()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.shortDescriptionLabel.stopBlink()
+            self.temperatureLabel.stopBlink()
+        }
     }
 }
