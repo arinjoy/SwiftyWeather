@@ -11,6 +11,9 @@ import Combine
 
 protocol WeatherListPresenting: class {
     
+    /// The tranformed list data source with presentation items to bind to a list UI
+    var dataSource: WeatherListDataSource { get set }
+    
     /// Called when view did become ready
     func viewDidBecomeReady()
     
@@ -30,7 +33,9 @@ protocol WeatherListPresenting: class {
 }
 
 final class WeatherListPresenter: WeatherListPresenting {
-
+    
+    var dataSource: WeatherListDataSource = WeatherListDataSource()
+    
     /// The front-facing view that conforms to the `WeatherListDisplay` protocol
     weak var display: WeatherListDisplay?
     
@@ -43,7 +48,7 @@ final class WeatherListPresenter: WeatherListPresenting {
     private let interactor: WeatherInteracting
     
     /// A Timer Publisher as per `Combine` that would events every X seconds which helps in periodic data refreshing
-    var tenSecondsTimer: Timer.TimerPublisher!
+    var secondsTimer: Timer.TimerPublisher!
     
     /// List of weather data fetched
     private var weatherListData: [CityWeather]?
@@ -52,6 +57,10 @@ final class WeatherListPresenter: WeatherListPresenting {
     private let tranformer = WeatherListTransformer()
     
     private var cancellableSet: Set<AnyCancellable> = []
+    
+    enum Constant {
+        static let periodicFetchInterval: TimeInterval = 15
+    }
     
     // MARK: - Lifecycle
     
@@ -77,7 +86,8 @@ final class WeatherListPresenter: WeatherListPresenting {
         
         display?.showLoadingIndicator()
         
-        interactor.getWeather(forCityIDs: Constant.cityIDs)
+        interactor.getWeather(forCityIDs: Config.cityIDs)
+        .delay(for: 1, scheduler: RunLoop.main) // To see shimmer
         .sink(receiveCompletion: { [weak self] completion in
             if case let .failure(error) = completion {
                 self?.display?.hideLoadingIndicator()
@@ -100,16 +110,16 @@ final class WeatherListPresenter: WeatherListPresenting {
     }
     
     func startPollingWeather() {
-        tenSecondsTimer = Timer.publish(every: 10, on: .main, in: .common)
-        _ = tenSecondsTimer.connect()
-        tenSecondsTimer
+        secondsTimer = Timer.publish(every: Constant.periodicFetchInterval, on: .main, in: .common)
+        _ = secondsTimer.connect()
+        secondsTimer
         .sink { _ in
             self.loadCurrentWeatherOfCities(isRereshingNeeded: true)
         }.store(in: &cancellableSet)
     }
     
     func stopPollingWeather() {
-        tenSecondsTimer.connect().cancel()
+        secondsTimer.connect().cancel()
     }
     
     // MARK: - Private Helpers
@@ -119,11 +129,10 @@ final class WeatherListPresenter: WeatherListPresenting {
         weatherListData = input
         
         let presentationItems = tranformer.transform(input: input)
-        var dataSource = WeatherListDataSource()
-        dataSource.appendSections([.main])
-        dataSource.appendItems(presentationItems, toSection: .main)
+        let dataSections = [DataSection<WeatherSummaryPresentationItem>(items: presentationItems)]
+        dataSource = DataSource<DataSection<WeatherSummaryPresentationItem>>(sections: dataSections)
         
-        display?.setWeatherListDataSource(dataSource)
+        display?.updateList()
     }
     
     private func handleError(_ error: APIError) {

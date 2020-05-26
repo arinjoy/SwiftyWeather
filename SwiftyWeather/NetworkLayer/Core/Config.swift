@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Constant {
+struct Config {
     
     /// API documentation: https://openweathermap.org/current#cityid
     

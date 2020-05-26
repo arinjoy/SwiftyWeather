@@ -10,16 +10,20 @@ import UIKit
 import SkeletonView
 import Combine
 
-final class WeatherListViewController: UITableViewController {
+final class WeatherListViewController: UIViewController {
 
-    // MARK: - IB Outlets
+    // MARK: - UI Elements
     
-    private lazy var refresherControl: UIRefreshControl = {
+    private lazy var tableView: UITableView = {
+       let tableView = UITableView(frame: self.view.bounds, style: .grouped)
+        return tableView
+    }()
+    
+    private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = Theme.Color.tintColor
         return refreshControl
     }()
-    
     
     // MARK: - Private Properties
     
@@ -64,6 +68,9 @@ final class WeatherListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = Theme.Color.lightBackgroundColor
+        view.addSubview(tableView)
+        
         setupTableView()
         
         presenter.viewDidBecomeReady()
@@ -91,42 +98,65 @@ final class WeatherListViewController: UITableViewController {
     // MARK: - Private Helpers
     
     private func setupTableView() {
-        view.backgroundColor = Theme.Color.lightBackgroundColor
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
+            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leadingMargin)
+            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailingMargin)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin)
+        }
+        
         tableView.backgroundColor = Theme.Color.lightBackgroundColor
         tableView.register(WeatherSummaryCell.self, forCellReuseIdentifier: "WeatherSummaryCell")
         
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 60
+        tableView.estimatedRowHeight = 80
         tableView.separatorStyle = .none
         
-        refreshControl = UIRefreshControl()
-        refreshControl?.tintColor = Theme.Color.tintColor
-        refreshControl?.addTarget(self, action: #selector(refreshWeatherData), for: .valueChanged)
-        
-        diffableDataSource = CityWeatherTableViewDiffableDataSource(tableView: tableView) { (tableView, indexPath, weatherSummaryPresentationItem) -> UITableViewCell? in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherSummaryCell",
-                                                           for: indexPath) as? WeatherSummaryCell
-            else { return UITableViewCell() }
-            cell.configure(withPresentationItem: weatherSummaryPresentationItem)
-            return cell
-        }
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData), for: .valueChanged)
         
         tableView.register(SkeletonCell.self,
                            forCellReuseIdentifier: SkeletonCell.cellReuseIdentifier)
         tableView.isSkeletonable = true
+        
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     @objc
     private func refreshWeatherData() {
         presenter.loadCurrentWeatherOfCities(isRereshingNeeded: true)
     }
+}
+
+// MARK: - UITableViewDataSource
+
+extension WeatherListViewController: UITableViewDataSource {
     
-    // MARK: - UITableViewDelegate
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return presenter.dataSource.numberOfSections()
+    }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didTapCityWeather(at: indexPath.row)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.dataSource.numberOfItems(inSection: section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard
+            let item = presenter.dataSource.item(atIndexPath: indexPath),
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherSummaryCell",
+                                                       for: indexPath) as? WeatherSummaryCell
+        else {
+            return UITableViewCell()
+        }
+        cell.configure(withPresentationItem: item)
+        return cell
     }
 }
+
+// MARK: - SkeletonTableViewDataSource
 
 extension WeatherListViewController: SkeletonTableViewDataSource {
 
@@ -135,7 +165,7 @@ extension WeatherListViewController: SkeletonTableViewDataSource {
     }
 
     func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Constant.cityIDs.count
+        return Config.cityIDs.count
     }
 
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
@@ -143,25 +173,36 @@ extension WeatherListViewController: SkeletonTableViewDataSource {
     }
 }
 
+ // MARK: - UITableViewDelegate
+
+extension WeatherListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didTapCityWeather(at: indexPath.row)
+    }
+}
+
+// MARK: - WeatherListDisplay
+
 extension WeatherListViewController: WeatherListDisplay {
     
     func setTitle(_ title: String) {
         self.title = title
     }
     
-    func setWeatherListDataSource(_ dataSource: WeatherListDataSource) {
-        diffableDataSource.apply(dataSource, animatingDifferences: false)
+    func updateList() {
+        tableView.reloadData()
     }
     
     func showLoadingIndicator() {
-        refreshControl?.beginRefreshing()
+        refreshControl.beginRefreshing()
         tableView.showAnimatedGradientSkeleton(usingGradient: skeletonGradient,
                                                animation: skeletonAnimation,
                                                transition: .crossDissolve(0.25))
     }
     
     func hideLoadingIndicator() {
-        refreshControl?.endRefreshing()
+        refreshControl.endRefreshing()
         tableView.hideSkeleton()
     }
     

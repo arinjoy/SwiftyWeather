@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0ij-54-0fy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cYX-v2-Y5b">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -8,26 +8,22 @@
     </dependencies>
     <scenes>
         <!--Weather List View Controller-->
-        <scene sceneID="5Fl-8H-hhm">
+        <scene sceneID="ykd-TT-tc1">
             <objects>
-                <tableViewController id="0ij-54-0fy" customClass="WeatherListViewController" customModule="SwiftyWeather" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5M6-Iq-sHX">
+                <viewController id="cYX-v2-Y5b" customClass="WeatherListViewController" customModule="SwiftyWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="foa-iU-3oo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <color key="sectionIndexColor" red="0.8918444641601857" green="0.94947077450059181" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <connections>
-                            <outlet property="dataSource" destination="0ij-54-0fy" id="I3T-kK-oG9"/>
-                            <outlet property="delegate" destination="0ij-54-0fy" id="p8z-Cj-7JA"/>
-                        </connections>
-                    </tableView>
+                        <viewLayoutGuide key="safeArea" id="QTM-2f-U5V"/>
+                    </view>
                     <connections>
-                        <segue destination="VOF-I4-8Nr" kind="push" id="fgE-CB-T0A"/>
+                        <segue destination="VOF-I4-8Nr" kind="push" id="ogc-TS-X09"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NLi-qv-D0R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SpJ-ow-GY4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-567" y="-4"/>
+            <point key="canvasLocation" x="-636" y="-4"/>
         </scene>
         <!--Weather Details View Controller-->
         <scene sceneID="dij-2i-Zw8">

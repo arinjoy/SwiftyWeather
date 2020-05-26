@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+typealias WeatherListDataSource = DataSource<DataSection<WeatherSummaryPresentationItem>>
+
 /// A section within the table view
 enum Section {
     /// Just one main section
@@ -20,6 +22,6 @@ enum Section {
 class CityWeatherTableViewDiffableDataSource: UITableViewDiffableDataSource<Section, WeatherSummaryPresentationItem> {}
 
 /// A type to represent snapshot within `CityWeatherTableViewDiffableDataSource`
-typealias WeatherListDataSource = NSDiffableDataSourceSnapshot<Section, WeatherSummaryPresentationItem>
+typealias WeatherListsssDataSourcee = NSDiffableDataSourceSnapshot<Section, WeatherSummaryPresentationItem>
 
 

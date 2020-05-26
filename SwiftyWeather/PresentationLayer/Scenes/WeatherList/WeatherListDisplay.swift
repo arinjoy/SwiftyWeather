@@ -15,10 +15,8 @@ protocol WeatherListDisplay: class {
     /// - Parameter title: The title to set
     func setTitle(_ title: String)
     
-    /// Will display the given data source as the primary display set
-    ///
-    /// - Parameter dataSource: The set of data to display (transformed view models as NSDiffableDataSource wrapper)
-    func setWeatherListDataSource(_ dataSource: WeatherListDataSource)
+    /// Will be called to update the list UI
+    func updateList()
     
     /// Will show loading indicator while weather is fetched
     func showLoadingIndicator()
@@ -26,7 +24,11 @@ protocol WeatherListDisplay: class {
     /// Will hide the loading indicator
     func hideLoadingIndicator()
     
-    /// Will show an error alert
+    /// Will be called to show an error alert
+    /// - Parameters:
+    ///   - title: The title string of the error
+    ///   - message: The body string of the error
+    ///   - dismissTitle: The dismiss action title string of the error
     func showError(title: String, message: String, dismissTitle: String)
 }
 

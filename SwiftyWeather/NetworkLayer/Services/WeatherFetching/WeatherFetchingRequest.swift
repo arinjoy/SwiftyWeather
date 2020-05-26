@@ -14,7 +14,7 @@ final class WeatherFetchingRequest: BaseRequest {
     
     init(withCityIDs cityIDs: [String]) {
 
-        var urlComp = URLComponents(string: Constant.ApiConfig.serverPath)!
+        var urlComp = URLComponents(string: Config.ApiConfig.serverPath)!
         var items = [URLQueryItem]()
         for (key, value) in WeatherFetchingRequest.buildQueryParams(withCityIds: cityIDs) {
             items.append(URLQueryItem(name: key, value: value))
@@ -43,8 +43,8 @@ final class WeatherFetchingRequest: BaseRequest {
     private static func buildQueryParams(withCityIds cityIds: [String]) -> [String: String] {
         return [
             "id": cityIds.joined(separator: ","),
-            "units": Constant.ApiConfig.weatherUnit,
-            "APPID": Constant.ApiConfig.apiKey
+            "units": Config.ApiConfig.weatherUnit,
+            "APPID": Config.ApiConfig.apiKey
         ]
     }
 }

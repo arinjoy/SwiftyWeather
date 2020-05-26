@@ -15,12 +15,20 @@ final class SkeletonCell: UITableViewCell {
     static let cellReuseIdentifier = "SkeletonCell"
     
     // MARK: - UI Element Properties
+    
+    private lazy var containerCardView: UIView = {
+        let view = UIView()
+        view.isSkeletonable = true
+        return view
+    }()
         
     private lazy var label1: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.isSkeletonable = true
         label.linesCornerRadius = 10
+        label.textAlignment = .left
+        label.font = Theme.Font.bodyFont
         return label
     }()
     
@@ -29,6 +37,8 @@ final class SkeletonCell: UITableViewCell {
         label.numberOfLines = 1
         label.isSkeletonable = true
         label.linesCornerRadius = 10
+        label.textAlignment = .right
+        label.font = Theme.Font.bodyFont
         return label
     }()
 
@@ -36,7 +46,7 @@ final class SkeletonCell: UITableViewCell {
     // MARK: - Constants
     
     private enum Constants {
-        static let screenWidth: CGFloat = UIScreen.main.bounds.width
+        static let shimmerWidth: CGFloat = UIScreen.main.bounds.width / 2 - 48
         static let cellMargin: CGFloat = 16
     }
     
@@ -50,7 +60,8 @@ final class SkeletonCell: UITableViewCell {
         
         buildUIAndApplyConstraints()
         
-        contentView.backgroundColor = Theme.Color.backgroundColor
+        containerCardView.backgroundColor = Theme.Color.backgroundColor
+        contentView.backgroundColor = Theme.Color.lightBackgroundColor
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,26 +71,40 @@ final class SkeletonCell: UITableViewCell {
     // MARK: - Private Helpers
     
     private func buildUIAndApplyConstraints() {
-        
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .leading
-        stackView.spacing = 16
-        stackView.isSkeletonable = true
-        stackView.addArrangedSubview(label1)
-        stackView.addArrangedSubview(label2)
-        
+    
         label1.text = String(repeating: " ", count: 300)
         label2.text = String(repeating: " ", count: 300)
         
-        contentView.addSubview(stackView)
+        containerCardView.addSubview(label1)
+        containerCardView.addSubview(label2)
         
-        stackView.snp.makeConstraints { make in
+        contentView.addSubview(containerCardView)
+        containerCardView.snp.makeConstraints { make in
             make.leading.equalTo(contentView.snp.leading).offset(Constants.cellMargin)
             make.trailing.equalTo(contentView.snp.trailing).offset(-Constants.cellMargin)
-            make.top.equalTo(contentView.snp.top).offset(Constants.cellMargin)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-Constants.cellMargin)
+            make.top.equalTo(contentView.snp.top).offset(Constants.cellMargin/2)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-Constants.cellMargin/2)
         }
+        
+        label1.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(Constants.cellMargin)
+            make.bottom.equalToSuperview().offset(-Constants.cellMargin)
+            make.width.equalTo(Constants.shimmerWidth)
+            make.leading.equalToSuperview().offset(Constants.cellMargin)
+        }
+        
+        label2.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(Constants.cellMargin)
+            make.bottom.equalToSuperview().offset(-Constants.cellMargin)
+            make.width.equalTo(Constants.shimmerWidth)
+            make.trailing.equalToSuperview().offset(-Constants.cellMargin)
+        }
+        
+        Shadow(color: Theme.Color.primaryTextColor,
+               opacity: 0.3, blur: 4,
+               offset: CGSize(width: 0, height: 2))
+            .apply(toView: containerCardView)
+        containerCardView.layer.cornerRadius = 8.0
     }
 }
 
