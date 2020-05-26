@@ -52,7 +52,7 @@ final class WeatherInteractor: WeatherInteracting {
                                windSpeed: item.windInfo?.speed,
                                title: item.summaries?.first?.title,
                                description: item.summaries?.first?.description,
-                               iconURL: URL(string: Constant.ApiConfig.iconWebUrlBasePath + (item.summaries?.first?.iconCode ?? "") + ".png"))
+                               iconURL: URL(string: Config.ApiConfig.iconWebUrlBasePath + (item.summaries?.first?.iconCode ?? "") + ".png"))
         }
     }
 }
