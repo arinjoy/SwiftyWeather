@@ -15,9 +15,6 @@
 "error.dismiss.action.title" = "OK";
 "error.networkConnection.alert.message" = "Please check your network connection and try again.";
 
-"home.tab.name" = "Weather";
-"settings.tab.name" = "Settings";
-
 "weather.detail.temp.unit" = "°C";
 "weather.detail.minTemp.prefix" = "Min";
 "weather.detail.maxTemp.prefix" = "Max";
@@ -26,6 +23,8 @@
 "weather.detail.humidity.prefix" = "Humidity";
 "weather.detail.windSpeed.unit" = "m/s";
 "weather.detail.windSpeed.prefix" = "Wind speed";
+
+// MARK: - Accessibility
 
 "weather.list.item.accessibility.hint" = "Double tap to see more weather details";
 
