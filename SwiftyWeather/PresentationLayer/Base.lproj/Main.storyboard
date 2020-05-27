@@ -18,11 +18,14 @@
                         <viewLayoutGuide key="safeArea" id="QTM-2f-U5V"/>
                     </view>
                     <navigationItem key="navigationItem" id="Dwg-Fv-l5t">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="NvJ-81-ZvQ"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="NvJ-81-ZvQ">
+                            <connections>
+                                <segue destination="J2O-MF-jF5" kind="presentation" id="klO-we-rBs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="VOF-I4-8Nr" kind="push" id="ogc-TS-X09"/>
-                        <segue destination="J2O-MF-jF5" kind="presentation" modalPresentationStyle="automatic" id="ZCk-wv-eHl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SpJ-ow-GY4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -66,12 +69,12 @@
         <!--City Search View Controller-->
         <scene sceneID="Wqb-3Z-bCJ">
             <objects>
-                <viewController storyboardIdentifier="CitySearchViewController" id="J2O-MF-jF5" customClass="CitySearchViewController" customModule="WeatherRxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CitySearchViewController" id="J2O-MF-jF5" customClass="CitySearchViewController" customModule="SwiftyWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jeK-xT-aZY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="" placeholder="City search" translatesAutoresizingMaskIntoConstraints="NO" id="wz6-uN-dFO">
+                            <searchBar contentMode="redraw" text="" placeholder="Search a city" translatesAutoresizingMaskIntoConstraints="NO" id="wz6-uN-dFO">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -79,22 +82,22 @@
                                 <rect key="frame" x="0.0" y="56" width="414" height="752"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="VJu-0d-fGd" detailTextLabel="2Uu-xJ-Kg5" style="IBUITableViewCellStyleSubtitle" id="Br6-Ou-3Ll">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="VJu-0d-fGd" detailTextLabel="2Uu-xJ-Kg5" style="IBUITableViewCellStyleSubtitle" id="Br6-Ou-3Ll" userLabel="City Cell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Br6-Ou-3Ll" id="U7c-Ot-8Ii">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VJu-0d-fGd">
-                                                    <rect key="frame" x="20" y="6" width="31.5" height="19.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="&lt;City Name&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VJu-0d-fGd">
+                                                    <rect key="frame" x="20" y="6" width="95.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Uu-xJ-Kg5">
-                                                    <rect key="frame" x="20" y="25.5" width="40.5" height="13.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="&lt;Country Code&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Uu-xJ-Kg5">
+                                                    <rect key="frame" x="20" y="25.5" width="87.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,23 +113,24 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="u2b-QG-Ph4">
-                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
+                                <rect key="frame" x="177" y="156" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="37" id="GbX-3x-Mmu"/>
-                                    <constraint firstAttribute="height" constant="37" id="fif-je-UMQ"/>
+                                    <constraint firstAttribute="width" constant="60" id="GbX-3x-Mmu"/>
+                                    <constraint firstAttribute="height" constant="60" id="fif-je-UMQ"/>
                                 </constraints>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="u2b-QG-Ph4" firstAttribute="top" secondItem="wz6-uN-dFO" secondAttribute="bottom" constant="100" id="0qP-aX-OOH"/>
+                            <constraint firstItem="wz6-uN-dFO" firstAttribute="top" secondItem="dhN-Ob-JU6" secondAttribute="top" id="BWQ-fJ-8zd"/>
                             <constraint firstItem="wz6-uN-dFO" firstAttribute="trailing" secondItem="dhN-Ob-JU6" secondAttribute="trailing" id="BxO-Sf-1Ca"/>
                             <constraint firstItem="wz6-uN-dFO" firstAttribute="top" secondItem="dhN-Ob-JU6" secondAttribute="top" id="Fby-HS-bae"/>
                             <constraint firstItem="dhN-Ob-JU6" firstAttribute="trailing" secondItem="cxF-DR-Ytf" secondAttribute="trailing" id="NRI-cP-Hg0"/>
-                            <constraint firstItem="u2b-QG-Ph4" firstAttribute="centerY" secondItem="jeK-xT-aZY" secondAttribute="centerY" id="OTr-Pi-hPc"/>
                             <constraint firstItem="dhN-Ob-JU6" firstAttribute="bottom" secondItem="cxF-DR-Ytf" secondAttribute="bottom" id="RHM-yj-fYe"/>
-                            <constraint firstItem="wz6-uN-dFO" firstAttribute="leading" secondItem="dhN-Ob-JU6" secondAttribute="leading" id="SZH-jp-ECx"/>
                             <constraint firstItem="cxF-DR-Ytf" firstAttribute="top" secondItem="wz6-uN-dFO" secondAttribute="bottom" id="gYF-Xg-3UQ"/>
                             <constraint firstItem="cxF-DR-Ytf" firstAttribute="leading" secondItem="jeK-xT-aZY" secondAttribute="leading" id="hnx-Z5-8FW"/>
+                            <constraint firstItem="wz6-uN-dFO" firstAttribute="leading" secondItem="dhN-Ob-JU6" secondAttribute="leading" id="njP-3u-yAy"/>
                             <constraint firstItem="u2b-QG-Ph4" firstAttribute="centerX" secondItem="jeK-xT-aZY" secondAttribute="centerX" id="uCS-BU-Pgm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dhN-Ob-JU6"/>
@@ -139,10 +143,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicatorView" destination="u2b-QG-Ph4" id="kyP-K3-7WQ"/>
+                        <outlet property="activityIndicatorView" destination="u2b-QG-Ph4" id="5o6-3s-Vfg"/>
                         <outlet property="cancelButton" destination="CnV-Cq-Cgy" id="CBD-Qb-GFK"/>
-                        <outlet property="searchBar" destination="wz6-uN-dFO" id="hO1-qe-cgh"/>
-                        <outlet property="tableView" destination="cxF-DR-Ytf" id="ET3-4y-gQ0"/>
+                        <outlet property="searchBar" destination="wz6-uN-dFO" id="f1g-Mb-nMC"/>
+                        <outlet property="tableView" destination="cxF-DR-Ytf" id="mDm-A3-wY3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Hf-BO-fkx" sceneMemberID="firstResponder"/>

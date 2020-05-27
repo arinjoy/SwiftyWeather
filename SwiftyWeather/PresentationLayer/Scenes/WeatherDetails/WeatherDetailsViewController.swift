@@ -43,7 +43,7 @@ final class WeatherDetailsViewController: UIViewController {
         presenter = WeatherDetailsPresenter()
 
         // Injecting display & scene model weakly to the presenting instance
-        // Note: Can be done via 3rd party Dependency Injection framework like `Swinject` and syntaxex could be simplified
+        // Note: Can be done via 3rd party Dependency Injection framework like `Swinject` and syntaxes could be simplified
         (presenter as? WeatherDetailsPresenter)?.display = self
         (presenter as? WeatherDetailsPresenter)?.sceneModel = sceneModel
         

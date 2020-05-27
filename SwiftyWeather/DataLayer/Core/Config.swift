@@ -17,12 +17,12 @@ struct Config {
         "2147714", // Sydney
         "7839805", // Melbourne
         "2174003", // Brisbane
-//        "7839581", // Gold Coast
-//        "2078025", // Adelaide
-//        "2063523", // Perth
-//        "2172517", // Canberra
-//        "2163355", // Hobart
-//        "7839402", // Darwin
+        "7839581", // Gold Coast
+        "2078025", // Adelaide
+        "2063523", // Perth
+        "2172517", // Canberra
+        "2163355", // Hobart
+        "7839402", // Darwin
      ]
     
     /// API Documentation available at:

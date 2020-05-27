@@ -14,6 +14,9 @@ protocol WeatherListRouting: class {
     ///
     /// - Parameter sceneModel: The scene model that is being passed from list to details scene
     func routeToWeatherDetails(withSceneModel sceneModel: CityWeather)
+    
+    /// Will route to the City Search & Add scene
+    func routeToCitySearchAndAdd()
 }
 
 final class WeatherListRouter: WeatherListRouting {
@@ -29,6 +32,11 @@ final class WeatherListRouter: WeatherListRouting {
     func routeToWeatherDetails(withSceneModel sceneModel: CityWeather) {
         let detailsViewController = WeatherDetailsViewController(sceneModel: sceneModel)
         sourceViewController?.show(detailsViewController, sender: nil)
+    }
+    
+    func routeToCitySearchAndAdd() {
+        let citySearchViewController = CitySearchViewController()
+       // TODO: Present citySearchViewController and attach delegate to listen which city has been added
     }
 }
 
