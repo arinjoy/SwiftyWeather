@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>D7A12B3C-B52A-4466-84D9-9500CEA5DB98</key>
+		<key>FF975AD0-BE85-4387-80D5-5B40291EC015</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogMajorGroupSection</string>
@@ -15,24 +15,24 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
 			<key>fileName</key>
-			<string>D7A12B3C-B52A-4466-84D9-9500CEA5DB98.xcactivitylog</string>
+			<string>FF975AD0-BE85-4387-80D5-5B40291EC015.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>S</string>
+				<string>W</string>
 			</dict>
 			<key>signature</key>
 			<string>SwiftyWeather-emywcjgrehicahgcnvpyckdszeal</string>
 			<key>timeStartedRecording</key>
-			<real>611931674.06313503</real>
+			<real>612255637.71588397</real>
 			<key>timeStoppedRecording</key>
-			<real>611931674.68480206</real>
+			<real>612255655.06238198</real>
 			<key>title</key>
 			<string>Build target SwiftyWeather</string>
 			<key>uniqueIdentifier</key>
-			<string>D7A12B3C-B52A-4466-84D9-9500CEA5DB98</string>
+			<string>FF975AD0-BE85-4387-80D5-5B40291EC015</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>
